@@ -8,23 +8,60 @@
 
 import UIKit
 
-class ItemizationViewController: UIViewController {
-
+class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        createPickerView()
+        dismissPickerView()
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1 //number of session
     }
-    */
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return personList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return personList[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedPerson = personList[row]
+        personTextField.text = selectedPerson
+    }
+    
+    var selectedPerson: String?
+    var personList: [String] = []
+    
+    func createPickerView() {
+           let pickerView = UIPickerView()
+           pickerView.delegate = self
+           personTextField.inputView = pickerView
+    }
+    func dismissPickerView() {
+       let toolBar = UIToolbar()
+       toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
+        
+       toolBar.setItems([button], animated: true)
+       toolBar.isUserInteractionEnabled = true
+       personTextField.inputAccessoryView = toolBar
+    }
+    @objc func action() {
+          view.endEditing(true)
+    }
+
+
+    
+    @IBOutlet weak var personTextField: UITextField!
+    @IBAction func addPerson(_ sender: UITextField) {
+        personList.append(sender.text!)
+        sender.text = ""
+    }
+    
 
 }

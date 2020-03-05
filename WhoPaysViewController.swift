@@ -17,6 +17,7 @@ class WhoPaysViewController: UIViewController {
          textView.textColor = .white
          randomPersonText.textColor = .red
          randomPersonText.textAlignment = .center
+         textField.text = "Add a person here"
         // Do any additional setup after loading the view.
     }
     
@@ -32,22 +33,22 @@ class WhoPaysViewController: UIViewController {
     @IBAction func addPerson(_ sender: UIButton) {
         
         textView.text = ""
-              var message = ""
-              if textView != nil{
-                  //adding text field items into an array
-                  if textField.hasText {
-                       personList.append(textField.text!)
-                  }
+          var message = ""
+          if textView != nil{
+              //adding text field items into an array
+              if textField.hasText {
+               personList.append(textField.text!)
               }
-              
-              var i = 0
-              while i < personList.count {
-                  message += "\(i + 1).  \(personList[i])\n"
-                  i = i + 1
-              }
-              
-              textView.text = message
-              textField.text = ""
+          }
+          
+          var i = 0
+          while i < personList.count {
+              message += "\(i + 1).  \(personList[i])\n"
+              i = i + 1
+          }
+          
+          textView.text = message
+          textField.text = ""
     }
     
     @IBOutlet weak var randomPersonText: UITextView!
