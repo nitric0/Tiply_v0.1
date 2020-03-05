@@ -17,6 +17,7 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        //cell.detailTextLabel?.text = ""
         // Do any additional setup after loading the view.
     }
     //-----------TABLE----------------------
@@ -29,14 +30,19 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return personList.count
     }
     
+    var cell: UITableViewCell = UITableViewCell()
+    var concatString: String? = ""
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(indexPath.row)
         let person = personList[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
+         cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
         
         // Configure the cell...
         
         cell.textLabel?.text = person
-        //cell.detailTextLabel?.text = workout.shortDescription
+        
+        concatString = "\(concatString!) \(addItems()!)"
+        cell.detailTextLabel?.text = concatString
         
         return cell
     }
@@ -103,6 +109,16 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func addItem(_ sender: UIButton) {
         
+        if cell.detailTextLabel?.text == "   Item Name $Item Cost,"
+        {
+            cell.detailTextLabel?.text = ""
+        }
+        tableView.reloadData()
+    }
+    
+    func addItems() -> String? {
+        
+        return itemName.text! + " "  + itemCost.text! + ","
     }
     
     
