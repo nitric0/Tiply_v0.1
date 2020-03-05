@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilm-w2-M2K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="572"/>
+            <point key="canvasLocation" x="1519" y="-256"/>
         </scene>
         <!--Who Pays?-->
         <scene sceneID="mLY-h8-cUQ">
@@ -40,22 +40,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Who Pays?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOJ-Hv-Fxf">
-                                <rect key="frame" x="165" y="134" width="84" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Pays?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOJ-Hv-Fxf">
+                                <rect key="frame" x="130.5" y="64" width="153" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-51-bE2">
+                                <rect key="frame" x="20" y="132.5" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="j9F-53-gyO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-ax-ZC7">
+                                <rect key="frame" x="165" y="191.5" width="84" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="i7t-WC-gO8"/>
+                                </constraints>
+                                <state key="normal" title="Add Person"/>
+                                <connections>
+                                    <action selector="addPerson:" destination="Ewl-Ho-2ut" eventType="touchUpInside" id="o8s-kS-Pjk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lucky People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-an-Wu4">
+                                <rect key="frame" x="119" y="256.5" width="176.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List of people..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-A5-uWt">
+                                <rect key="frame" x="20" y="286" width="374" height="185"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="beQ-YE-fWI"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake Your Phone To See Who Pays!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htL-jE-keC">
+                                <rect key="frame" x="20" y="502" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Person Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-tv-Z5M">
+                                <rect key="frame" x="20" y="608.5" width="374" height="52"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="LNA-ah-eHi"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lucky Person Is..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dp-bO-UzY">
+                                <rect key="frame" x="98.5" y="573" width="217.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0Fr-ax-ZC7" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="165" id="0Na-Dl-SOh"/>
+                            <constraint firstItem="Nzz-51-bE2" firstAttribute="top" secondItem="DOJ-Hv-Fxf" secondAttribute="bottom" constant="30" id="5H3-zg-XZB"/>
+                            <constraint firstItem="XPC-tv-Z5M" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="5WJ-Ql-Tgm"/>
+                            <constraint firstItem="htL-jE-keC" firstAttribute="top" secondItem="akJ-A5-uWt" secondAttribute="bottom" constant="31" id="7yn-Fa-ieq"/>
+                            <constraint firstItem="Nzz-51-bE2" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="20" id="98m-Rg-9JC"/>
+                            <constraint firstItem="akJ-A5-uWt" firstAttribute="leading" secondItem="XPC-tv-Z5M" secondAttribute="leading" id="Cg9-Ud-gC2"/>
+                            <constraint firstItem="9Dp-bO-UzY" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="QtN-UC-kt9"/>
+                            <constraint firstItem="akJ-A5-uWt" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="TXt-Sw-jRq"/>
+                            <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="0Fr-ax-ZC7" secondAttribute="trailing" constant="165" id="Ufg-Et-v76"/>
+                            <constraint firstItem="XPC-tv-Z5M" firstAttribute="top" secondItem="9Dp-bO-UzY" secondAttribute="bottom" constant="8" id="Xlr-VA-FbI"/>
+                            <constraint firstItem="htL-jE-keC" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="YzC-BP-Ajp"/>
+                            <constraint firstItem="akJ-A5-uWt" firstAttribute="leading" secondItem="Nzz-51-bE2" secondAttribute="leading" id="c8J-oW-17l"/>
+                            <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="Nzz-51-bE2" secondAttribute="trailing" constant="20" id="diq-og-6Td"/>
+                            <constraint firstItem="DOJ-Hv-Fxf" firstAttribute="top" secondItem="F9I-LM-GZ7" secondAttribute="top" constant="20" id="g4j-rN-Zno"/>
+                            <constraint firstItem="akJ-A5-uWt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="htL-jE-keC" secondAttribute="trailing" id="hQd-fU-TWS"/>
+                            <constraint firstItem="P8j-an-Wu4" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="ipm-in-xYu"/>
+                            <constraint firstItem="P8j-an-Wu4" firstAttribute="top" secondItem="0Fr-ax-ZC7" secondAttribute="bottom" constant="35" id="k88-xX-0oQ"/>
+                            <constraint firstItem="0Fr-ax-ZC7" firstAttribute="top" secondItem="Nzz-51-bE2" secondAttribute="bottom" constant="25" id="k9G-Hh-hqs"/>
+                            <constraint firstItem="9Dp-bO-UzY" firstAttribute="top" secondItem="htL-jE-keC" secondAttribute="bottom" constant="44.5" id="lxL-sF-xwa"/>
+                            <constraint firstItem="akJ-A5-uWt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="htL-jE-keC" secondAttribute="leading" id="rhd-XH-wKv"/>
+                            <constraint firstItem="akJ-A5-uWt" firstAttribute="trailing" secondItem="XPC-tv-Z5M" secondAttribute="trailing" id="ryZ-GV-q8q"/>
+                            <constraint firstItem="akJ-A5-uWt" firstAttribute="top" secondItem="P8j-an-Wu4" secondAttribute="bottom" constant="2" id="sCh-lq-iIi"/>
+                            <constraint firstItem="DOJ-Hv-Fxf" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="tPE-BD-5Ia"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="F9I-LM-GZ7"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Who Pays?" image="dollarsign.square" catalog="system" id="rf9-0F-8WQ"/>
+                    <connections>
+                        <outlet property="randomPersonText" destination="XPC-tv-Z5M" id="I0X-hw-k4p"/>
+                        <outlet property="textField" destination="Nzz-51-bE2" id="exE-2h-rrc"/>
+                        <outlet property="textView" destination="akJ-A5-uWt" id="mEk-sV-VdF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daG-y6-ysr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="179"/>
+            <point key="canvasLocation" x="1518.840579710145" y="385.71428571428572"/>
         </scene>
         <!--Itemization-->
         <scene sceneID="TYu-l5-gvE">
@@ -80,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIW-l6-JJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="-847"/>
+            <point key="canvasLocation" x="603" y="387"/>
         </scene>
         <!--Tip Calculator-->
         <scene sceneID="lo1-fp-Gq8">
@@ -105,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQ6-XY-xAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="-469"/>
+            <point key="canvasLocation" x="641" y="-256"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="N5v-hV-FFR">
