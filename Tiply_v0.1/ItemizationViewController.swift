@@ -8,14 +8,45 @@
 
 import UIKit
 
-class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createPickerView()
         dismissPickerView()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
+    //-----------TABLE----------------------
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return personList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let person = personList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
+        
+        // Configure the cell...
+        
+        cell.textLabel?.text = person
+        //cell.detailTextLabel?.text = workout.shortDescription
+        
+        return cell
+    }
+     //-----------END TABLE----------------------
+    
+    var selectedPerson: String?
+    var personList: [String] = []
+
+    
+    //-------------PICKER------------
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 //number of session
     }
@@ -34,9 +65,6 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         personTextField.text = selectedPerson
     }
     
-    var selectedPerson: String?
-    var personList: [String] = []
-    
     func createPickerView() {
            let pickerView = UIPickerView()
            pickerView.delegate = self
@@ -54,14 +82,32 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @objc func action() {
           view.endEditing(true)
     }
-
-
+    //-------------END PICKER------------
     
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var addPersonTextField: UITextField!
     @IBOutlet weak var personTextField: UITextField!
-    @IBAction func addPerson(_ sender: UITextField) {
-        personList.append(sender.text!)
-        sender.text = ""
+  
+    @IBAction func addPerson(_ sender: UIButton) {
+        if addPersonTextField.text! != "" {
+            personList.append(addPersonTextField.text!)
+                addPersonTextField.text = ""
+                
+            tableView.reloadData()
+        }
+    }
+    @IBOutlet weak var itemName: UITextField!
+    @IBOutlet weak var itemCost: UITextField!
+    
+    @IBAction func addItem(_ sender: UIButton) {
+        
     }
     
+    
+    
 
+    
+ 
 }
