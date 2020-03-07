@@ -30,6 +30,7 @@ class TipCalculatorViewController: UIViewController {
     var roundTip : Bool = false
     var tipPerPerson : Double = 0.0
     var totalPerPerson : Double = 0.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +67,7 @@ class TipCalculatorViewController: UIViewController {
                     billTotalLabel.text = billTotalText
                     // reset the textfield text upon entering value
                     billTotalInput.text = ""
+                    billTotalInput.resignFirstResponder()
                 } else {
                     title = "Non Numerical Quantity"
                     message = "Please Enter Quantity as Numerical Value"
@@ -163,6 +165,8 @@ class TipCalculatorViewController: UIViewController {
     @IBAction func backgroundTouched(_ sender: UIControl) {
         billTotalInput.resignFirstResponder()
     }
+    
+    
     /*
     // MARK: - Navigation
 
