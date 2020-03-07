@@ -36,7 +36,7 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var globalStr: String? = ""
     var globalIndexPath = IndexPath()
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
+        //print(indexPath.row)
         let person = personList[indexPath.row]
         globalIndexPath = indexPath
         cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
