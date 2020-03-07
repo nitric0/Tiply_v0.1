@@ -20,6 +20,8 @@ class TipCalculatorViewController: UIViewController {
     @IBOutlet weak var tipperPersonLabel: UILabel!
     @IBOutlet weak var totalperPersonLabel: UILabel!
     
+    @IBOutlet var ratingSliders: [UISlider]!
+    
     var tipModifier : Float = 100.0
     var billTotal : Double = 0.0
     var billTotalText : String = "$0.00"
@@ -81,6 +83,15 @@ class TipCalculatorViewController: UIViewController {
             }
         }
     }
+    func calculateTipModifier()
+    {
+        var sliderTotals : Float = 0.0
+        for slider in ratingSliders {
+            sliderTotals += slider.value
+        }
+        sliderTotals *= 10
+        tipModifier = 100 + sliderTotals
+    }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
@@ -95,6 +106,7 @@ class TipCalculatorViewController: UIViewController {
                 
             } else {
                 // calculate rating based tip
+                    calculateTipModifier()
                    let modifier = Double((Double(tipModifier/100) * 20)/100)
                    var tip = billTotal * modifier
                    
@@ -123,25 +135,6 @@ class TipCalculatorViewController: UIViewController {
         numPeople = Int(sender.value)
     }
     
-    @IBAction func friendlinessSliderMoved(_ sender: UISlider) {
-        // The slider for friendliness
-        tipModifier += ( sender.value * 10)
-    }
-    
-    @IBAction func quicknessSliderMoved(_ sender: UISlider) {
-        // The slider for quickness
-        tipModifier += ( sender.value * 10)
-    }
-    
-    @IBAction func attentivenessSliderMoved(_ sender: UISlider) {
-        // the slider for attentiveness
-        tipModifier += ( sender.value * 10)
-    }
-    
-    @IBAction func qualitySliderMoved(_ sender: UISlider) {
-        // the slider for quality
-        tipModifier += ( sender.value * 10)
-    }
     
     @IBAction func roundtipSwitchToggle(_ sender: UISwitch) {
         sender.setOn(sender.isOn, animated: true)
