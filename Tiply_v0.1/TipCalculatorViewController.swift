@@ -111,7 +111,7 @@ class TipCalculatorViewController: UIViewController {
                    var tip = billTotal * modifier
                    
                    if (roundTip) {
-                       tip.round()
+                       tip = ceil(tip)
                    }
                    rbTipLabel.text = convertDoubleToCurrency(amount: tip)
                    
