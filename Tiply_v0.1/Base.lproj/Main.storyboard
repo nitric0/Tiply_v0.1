@@ -192,7 +192,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgM-Vl-kia">
-                                <rect key="frame" x="20" y="384" width="374" height="116"/>
+                                <rect key="frame" x="20" y="384" width="374" height="403"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -237,6 +237,7 @@
                         <outlet property="addPersonTextField" destination="Hj1-Xu-1lB" id="WIi-7c-Do7"/>
                         <outlet property="itemCost" destination="eUI-K3-eTF" id="hUa-Ph-a9z"/>
                         <outlet property="itemName" destination="5ZH-ml-6NO" id="BZQ-CY-OAg"/>
+                        <outlet property="personNameForItem" destination="Fhd-EW-JlX" id="sVc-f1-VJk"/>
                         <outlet property="personTextField" destination="Fhd-EW-JlX" id="1cZ-XF-AjW"/>
                         <outlet property="tableView" destination="mgM-Vl-kia" id="MOH-PB-jBg"/>
                     </connections>

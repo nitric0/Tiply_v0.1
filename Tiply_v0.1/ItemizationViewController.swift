@@ -32,24 +32,31 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var cell: UITableViewCell = UITableViewCell()
     var concatString: String? = ""
+    var globalStr: String? = ""
+    var globalIndexPath = IndexPath()
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         let person = personList[indexPath.row]
-         cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
+        globalIndexPath = indexPath
+        cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
         
-        // Configure the cell...
-        
+                       // Configure the cell...
+                       
         cell.textLabel?.text = person
-        
-        concatString = "\(concatString!) \(addItems()!)"
-        cell.detailTextLabel?.text = concatString
-        
+
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        //tableView.reloadData()
         return cell
     }
      //-----------END TABLE----------------------
     
     var selectedPerson: String?
     var personList: [String] = []
+    {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     
     //-------------PICKER------------
@@ -100,20 +107,44 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if addPersonTextField.text! != "" {
             personList.append(addPersonTextField.text!)
                 addPersonTextField.text = ""
-                
-            tableView.reloadData()
         }
     }
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemCost: UITextField!
+    @IBOutlet weak var personNameForItem: UITextField!
     
     @IBAction func addItem(_ sender: UIButton) {
         
-        if cell.detailTextLabel?.text == "   Item Name $Item Cost,"
-        {
-            cell.detailTextLabel?.text = ""
+        globalStr = addItems()
+
+        concatString = "\(concatString!) \(globalStr!)"
+
+        for i in 0...personList.count {
+            if(personNameForItem.text! == personList[i])
+            {
+                //tableView.beginUpdates()
+                //print(globalIndexPath.section)
+                let indexPath = IndexPath(row: i, section: globalIndexPath.section)
+                cell = tableView.cellForRow(at: indexPath)!
+                print(cell.textLabel?.text! ?? "")
+                cell.detailTextLabel?.text = concatString
+                //tableView.reloadData()
+                //tableView.endUpdates()
+                break
+            }
+
+
         }
-        tableView.reloadData()
+        print(globalIndexPath.count)
+        print(cell.textLabel!.text!)
+        print(globalIndexPath.item)
+        print(globalIndexPath.section)
+      
+   
+        //cell = tableView.dequeueReusableCell(withIdentifier: "person", for: globalIndexPath)
+        //cell.detailTextLabel?.text = concatString
+        
+        
     }
     
     func addItems() -> String? {
