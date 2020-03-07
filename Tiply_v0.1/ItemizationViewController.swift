@@ -17,6 +17,7 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
         //cell.detailTextLabel?.text = ""
         // Do any additional setup after loading the view.
     }
@@ -108,13 +109,28 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             personList.append(addPersonTextField.text!)
                 addPersonTextField.text = ""
         }
+            startItem = false
+        
+ 
     }
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemCost: UITextField!
     @IBOutlet weak var personNameForItem: UITextField!
     
+    var itemList: [String] = []
+    var startItem: Bool = true
+    
     @IBAction func addItem(_ sender: UIButton) {
         
+        if startItem == false {
+            
+            itemList.reserveCapacity(personList.count)
+            for _ in 0...personList.count {
+                itemList.append("")
+            }
+            
+        }
+        startItem = true
         globalStr = addItems()
 
         concatString = "\(concatString!) \(globalStr!)"
@@ -124,10 +140,11 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             {
                 //tableView.beginUpdates()
                 //print(globalIndexPath.section)
+                //itemList[i] = concatString!
                 let indexPath = IndexPath(row: i, section: globalIndexPath.section)
                 cell = tableView.cellForRow(at: indexPath)!
                 print(cell.textLabel?.text! ?? "")
-                cell.detailTextLabel?.text = concatString
+                cell.detailTextLabel?.text = itemList[i]
                 //tableView.reloadData()
                 //tableView.endUpdates()
                 break
@@ -135,10 +152,10 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
 
         }
-        print(globalIndexPath.count)
-        print(cell.textLabel!.text!)
-        print(globalIndexPath.item)
-        print(globalIndexPath.section)
+//        print(globalIndexPath.count)
+//        print(cell.textLabel!.text!)
+//        print(globalIndexPath.item)
+//        print(globalIndexPath.section)
       
    
         //cell = tableView.dequeueReusableCell(withIdentifier: "person", for: globalIndexPath)
@@ -148,8 +165,16 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func addItems() -> String? {
-        
+    
+        for i in 0...personList.count {
+            if personList[i] == personNameForItem.text! {
+                let str = itemName.text! + "  $"  + itemCost.text! + ","
+                itemList[i] = itemList[i] + str
+                break
+            }
+        }
         return itemName.text! + " "  + itemCost.text! + ","
+        
     }
     
     
