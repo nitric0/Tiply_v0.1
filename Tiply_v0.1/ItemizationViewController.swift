@@ -40,7 +40,8 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let person = personList[indexPath.row]
         globalIndexPath = indexPath
         cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
-        
+        cell.detailTextLabel?.numberOfLines = 3; // set the numberOfLines
+        cell.detailTextLabel?.lineBreakMode = .byTruncatingTail;
                        // Configure the cell...
                        
         cell.textLabel?.text = person
@@ -168,7 +169,7 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
         for i in 0...personList.count {
             if personList[i] == personNameForItem.text! {
-                let str = itemName.text! + "  $"  + itemCost.text! + ","
+                let str = itemName.text! + " $"  + itemCost.text! + ", "
                 itemList[i] = itemList[i] + str
                 break
             }
