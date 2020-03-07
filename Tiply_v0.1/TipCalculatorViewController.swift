@@ -84,24 +84,37 @@ class TipCalculatorViewController: UIViewController {
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
-        // calculate rating based tip
-        let modifier = Double((Double(tipModifier/100) * 20)/100)
-        var tip = billTotal * modifier
         
-        if (roundTip) {
-            tip.round()
+        if let bText = billTotalLabel.text {
+            if (bText.isEmpty || bText == "$0.00")
+            {
+                let alertController = UIAlertController(title: "Empty Field", message: "Please Enter Bill Amount", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else {
+                // calculate rating based tip
+                   let modifier = Double((Double(tipModifier/100) * 20)/100)
+                   var tip = billTotal * modifier
+                   
+                   if (roundTip) {
+                       tip.round()
+                   }
+                   rbTipLabel.text = convertDoubleToCurrency(amount: tip)
+                   
+                   // calculate tip person
+                   tipPerPerson = tip / Double(numPeople)
+                   tipperPersonLabel.text = convertDoubleToCurrency(amount: tipPerPerson)
+                   let total = billTotal + tip
+                   
+                   // calculate total per person
+                   totalPerPerson = total / Double(numPeople)
+                   totalperPersonLabel.text = convertDoubleToCurrency(amount: totalPerPerson)
+                   
+            }
         }
-        rbTipLabel.text = convertDoubleToCurrency(amount: tip)
-        
-        // calculate tip person
-        tipPerPerson = tip / Double(numPeople)
-        tipperPersonLabel.text = convertDoubleToCurrency(amount: tipPerPerson)
-        let total = billTotal + tip
-        
-        // calculate total per person
-        totalPerPerson = total / Double(numPeople)
-        totalperPersonLabel.text = convertDoubleToCurrency(amount: totalPerPerson)
-        
+   
     }
     
     
