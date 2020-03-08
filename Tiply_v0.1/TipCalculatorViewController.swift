@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TipCalculatorViewController: UIViewController {
+class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    
+
     @IBOutlet weak var billTotalInput: UITextField!
     @IBOutlet weak var billTotalLabel: UILabel!
     @IBOutlet weak var partySizeStepper: UIStepper!
@@ -19,6 +19,7 @@ class TipCalculatorViewController: UIViewController {
     @IBOutlet weak var standardTipLabel: UILabel!
     @IBOutlet weak var tipperPersonLabel: UILabel!
     @IBOutlet weak var totalperPersonLabel: UILabel!
+    @IBOutlet weak var standardTipTextField: UITextField!
     
     @IBOutlet var ratingSliders: [UISlider]!
     
@@ -30,12 +31,16 @@ class TipCalculatorViewController: UIViewController {
     var roundTip : Bool = false
     var tipPerPerson : Double = 0.0
     var totalPerPerson : Double = 0.0
-
+    var selectedTip : String = "20%"
+    
+    let tipList : [String] = ["10%", "15%", "18%", "20%", "22%", "25%"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        createPickerView()
+        dismissPickerView()
         partySizeStepper.minimumValue = 1
         partySizeStepper.maximumValue = 100
         partySizeStepper.wraps = true
@@ -165,6 +170,61 @@ class TipCalculatorViewController: UIViewController {
     @IBAction func backgroundTouched(_ sender: UIControl) {
         billTotalInput.resignFirstResponder()
     }
+    
+    
+    //-------------PICKER------------
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1 //number of session
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return tipList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return tipList[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedTip = tipList[row]
+        standardTipTextField.text = selectedTip
+    }
+    
+    func createPickerView() {
+           let pickerView = UIPickerView()
+           pickerView.delegate = self
+           standardTipTextField.inputView = pickerView
+    }
+    func dismissPickerView() {
+       let toolBar = UIToolbar()
+       toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
+        
+       toolBar.setItems([button], animated: true)
+       toolBar.isUserInteractionEnabled = true
+       standardTipTextField.inputAccessoryView = toolBar
+    }
+    @objc func action() {
+          view.endEditing(true)
+    }
+    
+    
+    func getStandardTip(_ percentage : String) -> Double {
+        var result : Double = 0.0
+        var temp = percentage
+        if let i = percentage.firstIndex(of: "%") {
+            temp.remove(at: i)
+        }
+        if let d : Double = Double(temp)
+        {
+            
+            let percent = d / 100
+            result = billTotal * percent
+        }
+        return result
+    }
+    //-------------END PICKER------------
     
     
     /*
