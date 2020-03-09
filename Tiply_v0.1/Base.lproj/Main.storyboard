@@ -146,19 +146,19 @@
         <scene sceneID="TYu-l5-gvE">
             <objects>
                 <viewController id="Tv2-z2-QRC" customClass="ItemizationViewController" customModule="Tiply_v0_1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="J1r-0o-N6L">
+                    <view key="view" contentMode="scaleToFill" id="J1r-0o-N6L" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Itemization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xX3-5G-GyF">
-                                <rect key="frame" x="141" y="63" width="132" height="34"/>
+                                <rect key="frame" x="141" y="44" width="132" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjc-Dx-egw">
-                                <rect key="frame" x="20" y="121" width="79" height="30"/>
+                                <rect key="frame" x="20" y="137" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Person"/>
                                 <connections>
@@ -166,19 +166,19 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZH-ml-6NO">
-                                <rect key="frame" x="107" y="178" width="287" height="34"/>
+                                <rect key="frame" x="107" y="194" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Item Cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUI-K3-eTF">
-                                <rect key="frame" x="107" y="231" width="166" height="34"/>
+                                <rect key="frame" x="107" y="247" width="166" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StE-sz-SjG">
-                                <rect key="frame" x="159" y="329" width="62" height="30"/>
+                                <rect key="frame" x="159" y="345" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Item"/>
                                 <connections>
@@ -186,13 +186,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Person Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hj1-Xu-1lB">
-                                <rect key="frame" x="107" y="121" width="287" height="34"/>
+                                <rect key="frame" x="107" y="137" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgM-Vl-kia">
-                                <rect key="frame" x="20" y="384" width="374" height="403"/>
+                                <rect key="frame" x="20" y="387" width="374" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -223,14 +223,31 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Person" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fhd-EW-JlX">
-                                <rect key="frame" x="107" y="282" width="287" height="34"/>
+                                <rect key="frame" x="107" y="298" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNz-vc-xBJ">
+                                <rect key="frame" x="57" y="95" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I0S-VM-Agz">
+                                <rect key="frame" x="129" y="95" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cre-Zr-Aff"/>
+                        <connections>
+                            <action selector="touchedBackground:" destination="Tv2-z2-QRC" eventType="touchDown" id="dLU-Nc-FZd"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Itemization" image="scissors" catalog="system" id="uCX-ce-J2c"/>
                     <connections>
@@ -239,7 +256,12 @@
                         <outlet property="itemName" destination="5ZH-ml-6NO" id="BZQ-CY-OAg"/>
                         <outlet property="personNameForItem" destination="Fhd-EW-JlX" id="sVc-f1-VJk"/>
                         <outlet property="personTextField" destination="Fhd-EW-JlX" id="1cZ-XF-AjW"/>
+                        <outlet property="runningTotalLabel" destination="I0S-VM-Agz" id="sFu-hl-Pdo"/>
                         <outlet property="tableView" destination="mgM-Vl-kia" id="MOH-PB-jBg"/>
+                        <outletCollection property="textFields" destination="Hj1-Xu-1lB" collectionClass="NSMutableArray" id="Pt5-qI-A6i"/>
+                        <outletCollection property="textFields" destination="5ZH-ml-6NO" collectionClass="NSMutableArray" id="kL1-DN-QiD"/>
+                        <outletCollection property="textFields" destination="eUI-K3-eTF" collectionClass="NSMutableArray" id="dlm-xU-9s1"/>
+                        <outletCollection property="textFields" destination="Fhd-EW-JlX" collectionClass="NSMutableArray" id="OMJ-WO-y2D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIW-l6-JJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

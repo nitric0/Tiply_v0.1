@@ -3,7 +3,7 @@
 //  Tiply_v0.1
 //
 //  Created by Thomas Dato on 3/6/20.
-//  Copyright © 2020 Syed Ali. All rights reserved.
+//  Copyright © 2020 Tommy Dato and Syed Ali. All rights reserved.
 //
 
 import UIKit
