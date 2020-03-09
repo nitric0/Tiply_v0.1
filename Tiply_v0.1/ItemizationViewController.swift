@@ -3,12 +3,18 @@
 //  Tiply_v0.1
 //
 //  Created by Syed Ali on 3/4/20.
-//  Copyright © 2020 Syed Ali. All rights reserved.
+//  Copyright © 2020 Syed Ali and Tommy Dato. All rights reserved.
 //
 
 import UIKit
 
 class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet var textFields: [UITextField]!
+    @IBOutlet weak var runningTotalLabel: UILabel!
+    var runningTotal : Double = 0.0
+    var runningTotalText : String = "$0.00"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +115,13 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if addPersonTextField.text! != "" {
             personList.append(addPersonTextField.text!)
                 addPersonTextField.text = ""
+        } else {
+            let alertController = UIAlertController(title: "Empty Field", message: "Please enter person name", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+                return
+            }))
+            
+            self.present(alertController, animated: true, completion: nil)
         }
             startItem = false
         
@@ -122,47 +135,101 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var startItem: Bool = true
     
     @IBAction func addItem(_ sender: UIButton) {
+        var pText = ""
+        var costText = ""
+        var iText = ""
         
-        if startItem == false {
-            
-            itemList.reserveCapacity(personList.count)
-            for _ in 0...personList.count {
-                itemList.append("")
-            }
-            
+        if let personText = personTextField.text {
+            pText = personText
         }
-        startItem = true
-        globalStr = addItems()
+        
+        if let itemCostText = itemCost.text {
+            costText = itemCostText
+        }
+        
+        if let iName = itemName.text {
+            iText = iName
+        }
 
-        concatString = "\(concatString!) \(globalStr!)"
-
-        for i in 0...personList.count {
-            if(personNameForItem.text! == personList[i])
+        
+        if (pText.isEmpty) {
+            // if they did not select a person to assign the item to
+            let alertController = UIAlertController(title: "Empty Field", message: "Please choose a person", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+        } else if (costText.isEmpty) {
+            // if they did not enter a price for the item
+            let alertController = UIAlertController(title: "Empty Field", message: "Please enter item cost", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        } else if (iText.isEmpty) {
+            // Maybe take this one out
+            let alertController = UIAlertController(title: "Empty Field", message: "Please enter item name", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            if let itemInput = Double(costText)
             {
-                //tableView.beginUpdates()
-                //print(globalIndexPath.section)
-                //itemList[i] = concatString!
-                let indexPath = IndexPath(row: i, section: globalIndexPath.section)
-                cell = tableView.cellForRow(at: indexPath)!
-                print(cell.textLabel?.text! ?? "")
-                cell.detailTextLabel?.text = itemList[i]
-                //tableView.reloadData()
-                //tableView.endUpdates()
-                break
+                runningTotal += itemInput
+                runningTotalText = convertDoubleToCurrency(amount: runningTotal)
+                runningTotalLabel.text = runningTotalText
             }
+            
+                    if startItem == false {
+                        
+                        itemList.reserveCapacity(personList.count)
+                        for _ in 0...personList.count {
+                            itemList.append("")
+                        }
+                        
+                    }
+                    startItem = true
+                    globalStr = addItems()
+
+                    concatString = "\(concatString!) \(globalStr!)"
+
+                    for i in 0...personList.count {
+                        if(personNameForItem.text! == personList[i])
+                        {
+                            //tableView.beginUpdates()
+                            //print(globalIndexPath.section)
+                            //itemList[i] = concatString!
+                            let indexPath = IndexPath(row: i, section: globalIndexPath.section)
+                            cell = tableView.cellForRow(at: indexPath)!
+                            print(cell.textLabel?.text! ?? "")
+                            cell.detailTextLabel?.text = itemList[i]
+                            //tableView.reloadData()
+                            //tableView.endUpdates()
+                            break
+                        }
 
 
+                    }
+            //        print(globalIndexPath.count)
+            //        print(cell.textLabel!.text!)
+            //        print(globalIndexPath.item)
+            //        print(globalIndexPath.section)
+                  
+                    // clear the text fields when the method ends
+                    clearTextFields()
+                    
+                    //cell = tableView.dequeueReusableCell(withIdentifier: "person", for: globalIndexPath)
+                    //cell.detailTextLabel?.text = concatString
+            
         }
-//        print(globalIndexPath.count)
-//        print(cell.textLabel!.text!)
-//        print(globalIndexPath.item)
-//        print(globalIndexPath.section)
-      
-   
-        //cell = tableView.dequeueReusableCell(withIdentifier: "person", for: globalIndexPath)
-        //cell.detailTextLabel?.text = concatString
+        
+    
+
         
         
+    }
+    
+    func clearTextFields() {
+        
+        for textField in textFields {
+            textField.text = ""
+        }
     }
     
     func addItems() -> String? {
@@ -178,8 +245,29 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
     }
     
+    @IBAction func touchedBackground(_ sender: UIControl) {
+        
+        for textField in textFields {
+            textField.resignFirstResponder()
+        }
+    }
     
+    func convertCurrencyToDouble(input: String) -> Double? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale.current
+            
+        return numberFormatter.number(from: input)?.doubleValue
+        
+    }
     
+    func convertDoubleToCurrency(amount: Double) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale.current
+        
+        return numberFormatter.string(from: NSNumber(value: amount))!
+    }
 
     
  
