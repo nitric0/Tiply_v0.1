@@ -7,31 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reviews-->
-        <scene sceneID="5y5-hz-5pn">
-            <objects>
-                <viewController id="Bn8-eN-sea" customClass="ReviewViewController" customModule="Tiply_v0_1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PLd-U9-Hqv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I9-ul-5Lj">
-                                <rect key="frame" x="158" y="113" width="98" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="poh-FO-swJ"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Reviews" image="star" catalog="system" id="L6X-OF-PNA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ilm-w2-M2K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1519" y="-256"/>
-        </scene>
         <!--Who Pays?-->
         <scene sceneID="mLY-h8-cUQ">
             <objects>
@@ -140,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daG-y6-ysr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518.840579710145" y="385.71428571428572"/>
+            <point key="canvasLocation" x="1500" y="386"/>
         </scene>
         <!--Itemization-->
         <scene sceneID="TYu-l5-gvE">
@@ -470,6 +445,58 @@
             </objects>
             <point key="canvasLocation" x="640.57971014492762" y="-256.47321428571428"/>
         </scene>
+        <!--Restaraunts Reviews-->
+        <scene sceneID="NhA-ai-WIT">
+            <objects>
+                <tableViewController id="0Zz-O9-XlW" customClass="ReviewViewController" customModule="Tiply_v0_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qxn-KV-15E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewItemCell" textLabel="y8S-g2-Ska" detailTextLabel="jK6-Ib-B7P" style="IBUITableViewCellStyleSubtitle" id="7I8-T9-Y0j">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7I8-T9-Y0j" id="Pw0-hL-4cL">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y8S-g2-Ska">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jK6-Ib-B7P">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Zz-O9-XlW" id="bMq-Kh-Dhf"/>
+                            <outlet property="delegate" destination="0Zz-O9-XlW" id="cQd-iV-ZFf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Restaraunts Reviews" id="7Om-K5-tp4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iK6-wn-W64">
+                            <color key="tintColor" red="0.51572199860000001" green="1" blue="0.52992329029999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="0Zz-O9-XlW" id="v0M-Fz-GqW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qrf-UL-J7Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410.144927536232" y="-256.47321428571428"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="N5v-hV-FFR">
             <objects>
@@ -482,13 +509,32 @@
                     <connections>
                         <segue destination="CCQ-sb-ubK" kind="relationship" relationship="viewControllers" id="xm1-Fn-bdv"/>
                         <segue destination="Ewl-Ho-2ut" kind="relationship" relationship="viewControllers" id="xqW-B7-zC4"/>
-                        <segue destination="Bn8-eN-sea" kind="relationship" relationship="viewControllers" id="RMe-2d-0E4"/>
                         <segue destination="Tv2-z2-QRC" kind="relationship" relationship="viewControllers" id="UB6-Jy-Kmv"/>
+                        <segue destination="6zO-lc-2YE" kind="relationship" relationship="viewControllers" id="utt-9a-SbP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9E-8R-7f6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-317" y="-121"/>
+        </scene>
+        <!--Reviews-->
+        <scene sceneID="49t-Hh-bvc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6zO-lc-2YE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Reviews" image="star" catalog="system" id="uP7-XJ-BYq"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jeV-f4-TAX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Zz-O9-XlW" kind="relationship" relationship="rootViewController" id="HeR-un-Hvf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vyi-xr-LT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500.0000000000002" y="-256.47321428571428"/>
         </scene>
     </scenes>
     <resources>
