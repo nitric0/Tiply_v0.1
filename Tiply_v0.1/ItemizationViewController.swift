@@ -76,7 +76,12 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return personList.count
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if personList.count == 1
+        {
+            personTextField.text = personList[0]
+        }
         return personList[row]
     }
     
@@ -84,12 +89,16 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedPerson = personList[row]
         personTextField.text = selectedPerson
+       
     }
     
     func createPickerView() {
            let pickerView = UIPickerView()
            pickerView.delegate = self
            personTextField.inputView = pickerView
+
+           
+        
     }
     func dismissPickerView() {
        let toolBar = UIToolbar()
