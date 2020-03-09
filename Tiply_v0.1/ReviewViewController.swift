@@ -32,7 +32,7 @@ class ReviewViewController: UITableViewController {
         
         let item = itemArray[indexPath.row]
         cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "5.0 Stars"
+        cell.detailTextLabel?.text = item.rating
         
         //cell.accessoryType = item.done ? .checkmark : .none
         
@@ -47,7 +47,7 @@ class ReviewViewController: UITableViewController {
         context.delete(itemArray[indexPath.row])
         itemArray.remove(at: indexPath.row)
         
-       // itemArray[indexPath.row].setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
+        //itemArray[indexPath.row].setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
         //itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         saveItems()
         
@@ -59,15 +59,16 @@ class ReviewViewController: UITableViewController {
     //MARK - Add new Items
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
+        var ratingField = UITextField()
+        
         let alert = UIAlertController(title: "Add New Review", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Restaraunt", style: .default) { (action) in
             //what will happen once the user clicks the Add Item button on the UIAlert
-           // print(textField.text!)
             
             let newRest = Restaraunt(context: self.context)
             newRest.name = textField.text!
-            newRest.rating = "5.0 Stars"
+            newRest.rating = ratingField.text!
             self.itemArray.append(newRest)
             //self.tableView.reloadData()
             self.saveItems()
@@ -76,8 +77,15 @@ class ReviewViewController: UITableViewController {
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create New Restaraunt"
             textField = alertTextField
+            ratingField = alertTextField
             
         }
+        
+        alert.addTextField { (alertTextField2) in
+                   alertTextField2.placeholder = "Create New Rating"
+                   ratingField = alertTextField2
+                   
+               }
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
