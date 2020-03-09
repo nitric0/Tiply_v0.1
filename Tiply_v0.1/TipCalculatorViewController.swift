@@ -94,9 +94,10 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
     {
         var sliderTotals : Float = 0.0
         for slider in ratingSliders {
-            sliderTotals += slider.value
+            sliderTotals += (slider.value/1.5)
         }
         sliderTotals *= 10
+
         tipModifier = 100 + sliderTotals
     }
     
@@ -112,24 +113,31 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
                 self.present(alertController, animated: true, completion: nil)
                 
             } else {
+                
                 // calculate rating based tip
-                    calculateTipModifier()
-                   let modifier = Double((Double(tipModifier/100) * 20)/100)
-                   var tip = billTotal * modifier
-                   
-                   if (roundTip) {
-                       tip = ceil(tip)
-                   }
-                   rbTipLabel.text = convertDoubleToCurrency(amount: tip)
-                   
-                   // calculate tip person
-                   tipPerPerson = tip / Double(numPeople)
-                   tipperPersonLabel.text = convertDoubleToCurrency(amount: tipPerPerson)
-                   let total = billTotal + tip
-                   
-                   // calculate total per person
-                   totalPerPerson = total / Double(numPeople)
-                   totalperPersonLabel.text = convertDoubleToCurrency(amount: totalPerPerson)
+                calculateTipModifier()
+                let modifier = Double((Double(tipModifier/100) * 20)/100)
+                var tip = billTotal * modifier
+               
+                if (roundTip) {
+                    tip = ceil(tip)
+                }
+                rbTipLabel.text = convertDoubleToCurrency(amount: tip)
+               
+                // calculate tip person
+                tipPerPerson = tip / Double(numPeople)
+                tipperPersonLabel.text = convertDoubleToCurrency(amount: tipPerPerson)
+                let total = billTotal + tip
+               
+                // calculate total per person
+                totalPerPerson = total / Double(numPeople)
+                totalperPersonLabel.text = convertDoubleToCurrency(amount: totalPerPerson)
+                
+                
+                // standard tip label
+                let sTip = getStandardTip(selectedTip)
+                standardTipLabel.text = convertDoubleToCurrency(amount: sTip)
+                
                    
             }
         }
@@ -226,6 +234,10 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     //-------------END PICKER------------
     
+    
+    @IBAction func sliderMoved(_ sender: UISlider) {
+        sender.value = roundf(sender.value)
+    }
     
     /*
     // MARK: - Navigation
