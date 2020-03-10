@@ -9,14 +9,14 @@
 import UIKit
 import CoreData
 
-class ReviewViewController: UITableViewController {
+class ReviewViewController: UITableViewController{
     
     var itemArray = [Restaraunt]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         loadItems()
     }
@@ -110,5 +110,50 @@ class ReviewViewController: UITableViewController {
         } catch {
             print("Error for load items \(error)")
         }
+        tableView.reloadData()
+    }
+    
+
+}
+//MARK: - Search Bar Methods
+extension ReviewViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        let request : NSFetchRequest<Restaraunt> = Restaraunt.fetchRequest()
+        //Query filter
+        //print(searchBar.text)
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
+        
+        request.predicate = predicate
+        
+        //Sort
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        //run requests and fetch results
+        do {
+           itemArray = try context.fetch(request)
+        } catch {
+            print("Error for load items \(error)")
+        }
+        
+        //update table view
+        tableView.reloadData()
+        
+    }
+    
+    //Whenever text is typed in the search bar aka text changed
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 || searchBar.text! == ""
+        {
+            loadItems()
+            DispatchQueue.main.async {
+                  searchBar.resignFirstResponder()
+        }
+        
+
+        }
+      
     }
 }
