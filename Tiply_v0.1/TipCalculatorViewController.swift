@@ -37,6 +37,16 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Swiping gesture for tab bar controller
+           let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+           swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+           self.view.addGestureRecognizer(swipeRight)
+           
+           let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+           swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+           self.view.addGestureRecognizer(swipeLeft)
+           
 
         // Do any additional setup after loading the view.
         createPickerView()
@@ -46,6 +56,23 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         partySizeStepper.wraps = true
         partySizeStepper.value = 1
     }
+    
+    //Swipe Gesture Test
+    @objc func swiped(_ gesture: UISwipeGestureRecognizer)
+       {
+           if gesture.direction == .left {
+               if (self.tabBarController?.selectedIndex)! < 4 {
+                   self.tabBarController?.selectedIndex += 1
+                   
+               }
+           }
+           else if gesture.direction == .right {
+               if (self.tabBarController?.selectedIndex)! > 0 {
+                              self.tabBarController?.selectedIndex -= 1
+                              
+                          }
+           }
+       }
     @IBAction func updateTotalButtonPressed(_ sender: UIButton) {
         
         if let textIn = billTotalInput.text {

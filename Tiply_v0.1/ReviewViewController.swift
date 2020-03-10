@@ -15,11 +15,35 @@ class ReviewViewController: UITableViewController{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        //Swiping gesture for tab bar controller
+                  let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+                  swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+                  self.view.addGestureRecognizer(swipeRight)
+                  
+                  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+                  swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+                  self.view.addGestureRecognizer(swipeLeft)
         // Do any additional setup after loading the view.
         loadItems()
     }
+    //Swipe Gesture Test
+    @objc func swiped(_ gesture: UISwipeGestureRecognizer)
+       {
+           if gesture.direction == .left {
+               if (self.tabBarController?.selectedIndex)! < 4 {
+                   self.tabBarController?.selectedIndex += 1
+                   
+               }
+           }
+           else if gesture.direction == .right {
+               if (self.tabBarController?.selectedIndex)! > 0 {
+                              self.tabBarController?.selectedIndex -= 1
+                              
+                          }
+           }
+       }
     
     //MARK - Tableview Datasource Methods
     

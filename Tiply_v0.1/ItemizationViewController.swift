@@ -23,10 +23,33 @@ class ItemizationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+        //Swiping gesture for tab bar controller
+                  let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+                  swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+                  self.view.addGestureRecognizer(swipeRight)
+                  
+                  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+                  swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+                  self.view.addGestureRecognizer(swipeLeft)
         //cell.detailTextLabel?.text = ""
         // Do any additional setup after loading the view.
     }
+    //Swipe Gesture Test
+    @objc func swiped(_ gesture: UISwipeGestureRecognizer)
+       {
+           if gesture.direction == .left {
+               if (self.tabBarController?.selectedIndex)! < 4 {
+                   self.tabBarController?.selectedIndex += 1
+                   
+               }
+           }
+           else if gesture.direction == .right {
+               if (self.tabBarController?.selectedIndex)! > 0 {
+                              self.tabBarController?.selectedIndex -= 1
+                              
+                          }
+           }
+       }
     //-----------TABLE----------------------
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

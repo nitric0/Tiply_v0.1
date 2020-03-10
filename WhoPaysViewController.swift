@@ -12,7 +12,14 @@ class WhoPaysViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Swiping gesture for tab bar controller
+                  let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+                  swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+                  self.view.addGestureRecognizer(swipeRight)
+                  
+                  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+                  swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+                  self.view.addGestureRecognizer(swipeLeft)
          textView.backgroundColor = .darkGray
          textView.textColor = .white
          randomPersonText.textColor = .red
@@ -21,8 +28,29 @@ class WhoPaysViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Swipe Gesture Test
+    @objc func swiped(_ gesture: UISwipeGestureRecognizer)
+       {
+           if gesture.direction == .left {
+               if (self.tabBarController?.selectedIndex)! < 4 {
+                   self.tabBarController?.selectedIndex += 1
+                   
+               }
+           }
+           else if gesture.direction == .right {
+               if (self.tabBarController?.selectedIndex)! > 0 {
+                              self.tabBarController?.selectedIndex -= 1
+                              
+                          }
+           }
+       }
+    
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        self.randomPersons()
+        if !personList.isEmpty
+        {
+            self.randomPersons()
+        }
+        
     }
     
     @IBOutlet weak var textField: UITextField!
