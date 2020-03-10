@@ -32,7 +32,7 @@ class ReviewViewController: UITableViewController{
         
         let item = itemArray[indexPath.row]
         cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = item.rating
+        cell.detailTextLabel?.text = "\(String(describing: item.rating!)) Stars"
         
         //cell.accessoryType = item.done ? .checkmark : .none
         
