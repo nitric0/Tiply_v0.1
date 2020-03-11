@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,9 @@
 		4158461C24107B5C00B48876 /* WhoPaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158461B24107B5C00B48876 /* WhoPaysViewController.swift */; };
 		4158461E24107BAF00B48876 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158461D24107BAF00B48876 /* ReviewViewController.swift */; };
 		4158462024107C9500B48876 /* ItemizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158461F24107C9500B48876 /* ItemizationViewController.swift */; };
+		6548B4D824196FE3006AD6C1 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548B4D724196FE3006AD6C1 /* SwipeTableViewController.swift */; };
 		65B8BC13241334B50098B2F2 /* TipCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */; };
+		92A7AFA009391FA0B60FFA8D /* Pods_Tiply_v0_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,11 @@
 		4158461B24107B5C00B48876 /* WhoPaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoPaysViewController.swift; sourceTree = "<group>"; };
 		4158461D24107BAF00B48876 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		4158461F24107C9500B48876 /* ItemizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizationViewController.swift; sourceTree = "<group>"; };
+		6548B4D724196FE3006AD6C1 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		658D9CD184AB113E41D5FD74 /* Pods-Tiply_v0.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiply_v0.1.debug.xcconfig"; path = "Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1.debug.xcconfig"; sourceTree = "<group>"; };
 		65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorViewController.swift; sourceTree = "<group>"; };
+		9D761494CDD25B055F653153 /* Pods-Tiply_v0.1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiply_v0.1.release.xcconfig"; path = "Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1.release.xcconfig"; sourceTree = "<group>"; };
+		F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tiply_v0_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,18 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A7AFA009391FA0B60FFA8D /* Pods_Tiply_v0_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		323D2D9599A914184F0F0007 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		412311802401DD4F00375AAD = {
 			isa = PBXGroup;
 			children = (
-				4158461B24107B5C00B48876 /* WhoPaysViewController.swift */,
 				4123118B2401DD4F00375AAD /* Tiply_v0.1 */,
 				4123118A2401DD4F00375AAD /* Products */,
+				90FC3D9A5344235655FCD59B /* Pods */,
+				323D2D9599A914184F0F0007 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,19 +83,54 @@
 		4123118B2401DD4F00375AAD /* Tiply_v0.1 */ = {
 			isa = PBXGroup;
 			children = (
-				4123118C2401DD4F00375AAD /* AppDelegate.swift */,
-				4146177224149007004618C9 /* Tiply_v0.1.xcdatamodeld */,
 				4123118E2401DD4F00375AAD /* SceneDelegate.swift */,
-				412311902401DD4F00375AAD /* ViewController.swift */,
-				412311922401DD4F00375AAD /* Main.storyboard */,
-				4158461F24107C9500B48876 /* ItemizationViewController.swift */,
-				4158461D24107BAF00B48876 /* ReviewViewController.swift */,
+				4123118C2401DD4F00375AAD /* AppDelegate.swift */,
+				65DF0B06241990D700AF402F /* Controllers */,
+				65DF0B08241990F200AF402F /* Data Model */,
+				65DF0B07241990E400AF402F /* Views */,
 				412311952401DD5100375AAD /* Assets.xcassets */,
-				412311972401DD5100375AAD /* LaunchScreen.storyboard */,
 				4123119A2401DD5100375AAD /* Info.plist */,
-				65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */,
 			);
 			path = Tiply_v0.1;
+			sourceTree = "<group>";
+		};
+		65DF0B06241990D700AF402F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4158461B24107B5C00B48876 /* WhoPaysViewController.swift */,
+				412311902401DD4F00375AAD /* ViewController.swift */,
+				4158461F24107C9500B48876 /* ItemizationViewController.swift */,
+				4158461D24107BAF00B48876 /* ReviewViewController.swift */,
+				65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */,
+				6548B4D724196FE3006AD6C1 /* SwipeTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		65DF0B07241990E400AF402F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				412311922401DD4F00375AAD /* Main.storyboard */,
+				412311972401DD5100375AAD /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		65DF0B08241990F200AF402F /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				4146177224149007004618C9 /* Tiply_v0.1.xcdatamodeld */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		90FC3D9A5344235655FCD59B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				658D9CD184AB113E41D5FD74 /* Pods-Tiply_v0.1.debug.xcconfig */,
+				9D761494CDD25B055F653153 /* Pods-Tiply_v0.1.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4123119D2401DD5100375AAD /* Build configuration list for PBXNativeTarget "Tiply_v0.1" */;
 			buildPhases = (
+				5609FB3B15B2B974F2F8C28E /* [CP] Check Pods Manifest.lock */,
 				412311852401DD4F00375AAD /* Sources */,
 				412311862401DD4F00375AAD /* Frameworks */,
 				412311872401DD4F00375AAD /* Resources */,
+				33C0035D764FFBB2116F91F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +201,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33C0035D764FFBB2116F91F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5609FB3B15B2B974F2F8C28E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tiply_v0.1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		412311852401DD4F00375AAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,6 +252,7 @@
 				4158461C24107B5C00B48876 /* WhoPaysViewController.swift in Sources */,
 				412311912401DD4F00375AAD /* ViewController.swift in Sources */,
 				65B8BC13241334B50098B2F2 /* TipCalculatorViewController.swift in Sources */,
+				6548B4D824196FE3006AD6C1 /* SwipeTableViewController.swift in Sources */,
 				4158461E24107BAF00B48876 /* ReviewViewController.swift in Sources */,
 				4146177424149007004618C9 /* Tiply_v0.1.xcdatamodeld in Sources */,
 				4123118D2401DD4F00375AAD /* AppDelegate.swift in Sources */,
@@ -302,6 +398,7 @@
 		};
 		4123119E2401DD5100375AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 658D9CD184AB113E41D5FD74 /* Pods-Tiply_v0.1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -320,6 +417,7 @@
 		};
 		4123119F2401DD5100375AAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D761494CDD25B055F653153 /* Pods-Tiply_v0.1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

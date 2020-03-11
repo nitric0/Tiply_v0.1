@@ -3,15 +3,15 @@
 //  Tiply_v0.1
 //
 //  Created by Syed Ali on 3/4/20.
-//  Copyright © 2020 Syed Ali. All rights reserved.
+//  Copyright © 2020 Tommy Dato and Syed Ali. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class ReviewViewController: UITableViewController{
+class ReviewViewController: SwipeTableViewController{
     
-    var itemArray = [Restaraunt]()
+    var itemArray = [Restaraunt?]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -52,11 +52,13 @@ class ReviewViewController: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewItemCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
-        let item = itemArray[indexPath.row]
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "\(String(describing: item.rating!)) Stars"
+        if let item = itemArray[indexPath.row] {
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = "\(String(describing: item.rating!)) Stars"
+        }
+
         
         //cell.accessoryType = item.done ? .checkmark : .none
         
@@ -68,8 +70,8 @@ class ReviewViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
         //to delete items by clicking on them
-        context.delete(itemArray[indexPath.row])
-        itemArray.remove(at: indexPath.row)
+        //context.delete(itemArray[indexPath.row])
+        //itemArray.remove(at: indexPath.row)
         
         //itemArray[indexPath.row].setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
         //itemArray[indexPath.row].done = !itemArray[indexPath.row].done
@@ -114,7 +116,7 @@ class ReviewViewController: UITableViewController{
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    
+//MARK: - Model Manipulation Methods
     func saveItems()
     {
         do {
@@ -135,6 +137,21 @@ class ReviewViewController: UITableViewController{
             print("Error for load items \(error)")
         }
         tableView.reloadData()
+    }
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let item = itemArray[indexPath.row] {
+            context.delete(item)
+            itemArray.remove(at: indexPath.row)
+            
+            do {
+                try self.context.save()
+            } catch {
+                print("Error updating items \(error)")
+            }
+            
+        }
+
     }
     
 

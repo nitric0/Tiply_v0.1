@@ -1,0 +1,6 @@
+framework module Pods_Tiply_v0_1 {
+  umbrella header "Pods-Tiply_v0.1-umbrella.h"
+
+  export *
+  module * { export * }
+}
