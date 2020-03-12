@@ -19,6 +19,7 @@
 		4158462024107C9500B48876 /* ItemizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158461F24107C9500B48876 /* ItemizationViewController.swift */; };
 		6548B4D824196FE3006AD6C1 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548B4D724196FE3006AD6C1 /* SwipeTableViewController.swift */; };
 		65B8BC13241334B50098B2F2 /* TipCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */; };
+		65FFF9CD2419CDB700ED3EAE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65FFF9C12419CD9B00ED3EAE /* Roboto-Regular.ttf */; };
 		92A7AFA009391FA0B60FFA8D /* Pods_Tiply_v0_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		6548B4D724196FE3006AD6C1 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		658D9CD184AB113E41D5FD74 /* Pods-Tiply_v0.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiply_v0.1.debug.xcconfig"; path = "Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1.debug.xcconfig"; sourceTree = "<group>"; };
 		65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorViewController.swift; sourceTree = "<group>"; };
+		65FFF9C12419CD9B00ED3EAE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D761494CDD25B055F653153 /* Pods-Tiply_v0.1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiply_v0.1.release.xcconfig"; path = "Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1.release.xcconfig"; sourceTree = "<group>"; };
 		F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tiply_v0_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 				65DF0B07241990E400AF402F /* Views */,
 				412311952401DD5100375AAD /* Assets.xcassets */,
 				4123119A2401DD5100375AAD /* Info.plist */,
+				65FFF99F2419CD5400ED3EAE /* Fonts */,
 			);
 			path = Tiply_v0.1;
 			sourceTree = "<group>";
@@ -122,6 +125,14 @@
 				4146177224149007004618C9 /* Tiply_v0.1.xcdatamodeld */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		65FFF99F2419CD5400ED3EAE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				65FFF9C12419CD9B00ED3EAE /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		90FC3D9A5344235655FCD59B /* Pods */ = {
@@ -196,6 +207,7 @@
 				412311992401DD5100375AAD /* LaunchScreen.storyboard in Resources */,
 				412311962401DD5100375AAD /* Assets.xcassets in Resources */,
 				412311942401DD4F00375AAD /* Main.storyboard in Resources */,
+				65FFF9CD2419CDB700ED3EAE /* Roboto-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
