@@ -19,6 +19,7 @@ class ItemizationViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addPersonTextField: UITextField!
     @IBOutlet weak var personTextField: UITextField!
+    @IBOutlet weak var addItemButton: UIButton!
     
 
     
@@ -57,6 +58,12 @@ class ItemizationViewController: UIViewController {
         self.view.addGestureRecognizer(swipeLeft)
         //cell.detailTextLabel?.text = ""
         // Do any additional setup after loading the view.
+        itemName.isEnabled = false
+        itemCost.isEnabled = false
+        personTextField.isEnabled = false
+        addItemButton.isEnabled = false
+        
+
     }
     
     //MARK: - Swipe Gesture Test
@@ -247,6 +254,7 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print(indexPath.row)
+        checkList()
         let person = personList[indexPath.row]
         globalIndexPath = indexPath
         cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
@@ -260,6 +268,22 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
         //tableView.reloadData()
         return cell
+    }
+    
+    func checkList()
+    {
+        if personList.isEmpty {
+            itemName.isEnabled = false
+            itemCost.isEnabled = false
+            personTextField.isEnabled = false
+            addItemButton.isEnabled = false
+        }
+        else {
+            itemName.isEnabled = true
+            itemCost.isEnabled = true
+            personTextField.isEnabled = true
+            addItemButton.isEnabled = true
+        }
     }
     
     

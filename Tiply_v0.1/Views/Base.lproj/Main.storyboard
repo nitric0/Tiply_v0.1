@@ -273,6 +273,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Itemization" image="scissors" catalog="system" id="uCX-ce-J2c"/>
                     <connections>
+                        <outlet property="addItemButton" destination="StE-sz-SjG" id="nYJ-72-Zgj"/>
                         <outlet property="addPersonTextField" destination="Hj1-Xu-1lB" id="WIi-7c-Do7"/>
                         <outlet property="itemCost" destination="eUI-K3-eTF" id="hUa-Ph-a9z"/>
                         <outlet property="itemName" destination="5ZH-ml-6NO" id="BZQ-CY-OAg"/>
