@@ -11,6 +11,8 @@ import CoreData
 
 class ReviewViewController: SwipeTableViewController{
     
+    
+    @IBOutlet weak var searchbar: UISearchBar!
     var itemArray = [Restaraunt?]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -27,6 +29,13 @@ class ReviewViewController: SwipeTableViewController{
         self.view.addGestureRecognizer(swipeLeft)
         // Do any additional setup after loading the view.
         loadItems()
+        searchbar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search Reviews", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.6)])
+        searchbar.searchTextField.textColor = UIColor.white
+        searchbar.searchTextField.leftView?.tintColor = UIColor.white
+        
+        tableView.backgroundColor = #colorLiteral(red: 0.0194743108, green: 0.1317860186, blue: 0.297239691, alpha: 1)
+        tableView.separatorColor = #colorLiteral(red: 0, green: 0.5509557724, blue: 0.6975272298, alpha: 1)
+        
     }
     //MARK: - Swipe Gesture Test
     @objc func swiped(_ gesture: UISwipeGestureRecognizer)
@@ -52,6 +61,9 @@ class ReviewViewController: SwipeTableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0.862623632, blue: 0.7772392631, alpha: 1)
+        cell.detailTextLabel?.textColor = #colorLiteral(red: 0, green: 0.894530952, blue: 0.8858652711, alpha: 1)
+        cell.backgroundColor = tableView.backgroundColor
         
         if let item = itemArray[indexPath.row] {
             cell.textLabel?.text = item.name

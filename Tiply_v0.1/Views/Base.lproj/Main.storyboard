@@ -3,6 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,20 +17,25 @@
         <scene sceneID="mLY-h8-cUQ">
             <objects>
                 <viewController id="Ewl-Ho-2ut" customClass="WhoPaysViewController" customModule="Tiply_v0_1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5FN-2D-16u">
+                    <view key="view" contentMode="scaleToFill" id="5FN-2D-16u" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Pays?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOJ-Hv-Fxf">
-                                <rect key="frame" x="116.66666666666669" y="64" width="181" height="43.666666666666657"/>
+                                <rect key="frame" x="116.66666666666667" y="64" width="180.66666666666663" height="43.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="37"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-51-bE2">
                                 <rect key="frame" x="20" y="137.66666666666666" width="374" height="34"/>
+                                <color key="backgroundColor" name="backColor2"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneEditing:" destination="Ewl-Ho-2ut" eventType="editingDidEnd" id="zVb-B0-qgv"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-ax-ZC7">
                                 <rect key="frame" x="168" y="196.66666666666666" width="78" height="30"/>
@@ -37,59 +43,59 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="i7t-WC-gO8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                <state key="normal" title="Add Person"/>
+                                <state key="normal" title="Add Person">
+                                    <color key="titleColor" name="fontColor2"/>
+                                </state>
                                 <connections>
                                     <action selector="addPerson:" destination="Ewl-Ho-2ut" eventType="touchUpInside" id="o8s-kS-Pjk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lucky People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-an-Wu4">
-                                <rect key="frame" x="117" y="261.66666666666669" width="180" height="27"/>
+                                <rect key="frame" x="117.33333333333333" y="261.66666666666669" width="179.66666666666669" height="27"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="23"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List of people..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-A5-uWt">
                                 <rect key="frame" x="20" y="290.66666666666669" width="374" height="185"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="185" id="beQ-YE-fWI"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" name="fontColor2"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Person Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-tv-Z5M">
-                                <rect key="frame" x="20" y="611" width="374" height="52"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="20" y="612" width="374" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="LNA-ah-eHi"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" name="fontColor1"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lucky Person Is..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dp-bO-UzY">
-                                <rect key="frame" x="86.666666666666686" y="568.33333333333337" width="241" height="22"/>
+                                <rect key="frame" x="86.666666666666686" y="569.33333333333337" width="241" height="22"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-1g-LIb">
-                                <rect key="frame" x="115" y="522.66666666666663" width="185" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="115" y="522.66666666666663" width="185" height="31"/>
+                                <color key="backgroundColor" name="backColor2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="A9u-ya-LGV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" name="fontColor1"/>
                                 </state>
                                 <connections>
                                     <action selector="doneAdding:" destination="Ewl-Ho-2ut" eventType="touchUpInside" id="0ZJ-gX-1jn"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="appBackground"/>
                         <constraints>
                             <constraint firstItem="0Fr-ax-ZC7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F9I-LM-GZ7" secondAttribute="leading" id="0Na-Dl-SOh"/>
                             <constraint firstItem="OCh-1g-LIb" firstAttribute="top" secondItem="akJ-A5-uWt" secondAttribute="bottom" constant="46.999999999999943" id="2dN-RZ-Dz2"/>
@@ -116,6 +122,9 @@
                             <constraint firstItem="Nzz-51-bE2" firstAttribute="trailing" secondItem="akJ-A5-uWt" secondAttribute="trailing" id="z2v-Yd-xLN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F9I-LM-GZ7"/>
+                        <connections>
+                            <action selector="backgroundTouched:" destination="Ewl-Ho-2ut" eventType="touchDown" id="SwG-Jp-b2J"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Who Pays?" image="dollarsign.square" catalog="system" id="rf9-0F-8WQ"/>
                     <connections>
@@ -126,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daG-y6-ysr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="256.4039408866995"/>
+            <point key="canvasLocation" x="1500.0000000000002" y="255.80357142857142"/>
         </scene>
         <!--Itemization-->
         <scene sceneID="TYu-l5-gvE">
@@ -137,26 +146,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Itemization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xX3-5G-GyF">
-                                <rect key="frame" x="144.66666666666666" y="49" width="124.99999999999997" height="30"/>
+                                <rect key="frame" x="144.66666666666666" y="49" width="124.66666666666666" height="30"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjc-Dx-egw">
                                 <rect key="frame" x="28" y="322" width="130" height="32"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Add Person"/>
+                                <state key="normal" title="Add Person">
+                                    <color key="titleColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="addPerson:" destination="Tv2-z2-QRC" eventType="touchUpInside" id="IEa-TG-hsA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZH-ml-6NO">
                                 <rect key="frame" x="150" y="172" width="214" height="34"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Item Cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUI-K3-eTF">
                                 <rect key="frame" x="150" y="216" width="214" height="34"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -166,19 +181,27 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="ANv-hC-fLK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Add Item"/>
+                                <state key="normal" title="Add Item">
+                                    <color key="titleColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="addItem:" destination="Tv2-z2-QRC" eventType="touchUpInside" id="9YZ-sQ-ySr"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Person Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hj1-Xu-1lB">
                                 <rect key="frame" x="150" y="128" width="214" height="34"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgM-Vl-kia">
                                 <rect key="frame" x="28" y="384" width="360" height="403"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.12941176469999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.054901960780000002" green="0.84705882349999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexColor" red="0.054901960780000002" green="0.84705882349999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.050980392159999999" green="0.12941176469999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.050980392159999999" green="0.12941176469999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="person" textLabel="jMY-Zz-he7" detailTextLabel="fRu-dC-hDr" style="IBUITableViewCellStyleSubtitle" id="G2Z-Fp-MiG">
                                         <rect key="frame" x="0.0" y="28" width="360" height="55.666667938232422"/>
@@ -203,11 +226,14 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.050980392159999999" green="0.12941176469999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Person" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fhd-EW-JlX">
                                 <rect key="frame" x="150" y="260" width="214" height="34"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -217,7 +243,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="33g-RV-Mmh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Clear All"/>
+                                <state key="normal" title="Clear All">
+                                    <color key="titleColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="clearButtonPressed:" destination="Tv2-z2-QRC" eventType="touchUpInside" id="rWr-Tx-qpQ"/>
                                 </connections>
@@ -228,41 +256,41 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="Y38-b4-nCR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8y-6t-P88">
                                 <rect key="frame" x="28" y="135" width="103" height="20"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="120-PS-n2N">
                                 <rect key="frame" x="28" y="179" width="84" height="20"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dW9-aK-ZJ8">
                                 <rect key="frame" x="28" y="223" width="74" height="20"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iya-le-dDF">
                                 <rect key="frame" x="28" y="267" width="105" height="20"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I0S-VM-Agz">
                                 <rect key="frame" x="150" y="84" width="120" height="34"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="29"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="fontColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.12941176469999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Jjc-Dx-egw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Iya-le-dDF" secondAttribute="leading" id="2bV-Ra-N1q"/>
                             <constraint firstItem="cre-Zr-Aff" firstAttribute="trailing" secondItem="YEm-2h-CG9" secondAttribute="trailing" constant="26" id="3im-xj-FR3"/>
@@ -351,11 +379,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Bill Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g42-eG-z02">
                                                 <rect key="frame" x="0.0" y="8.3333333333333357" width="122" height="20"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Bill Total" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="gYQ-IV-MsG">
                                                 <rect key="frame" x="142" y="1.3333333333333357" width="153.33333333333337" height="34"/>
+                                                <color key="backgroundColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
@@ -365,7 +395,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWu-gi-iGp">
                                                 <rect key="frame" x="315.33333333333331" y="2.3333333333333357" width="70.666666666666686" height="32"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <state key="normal" title="Update"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleColor" red="0.43921568630000002" green="0.75686274509999996" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="updateTotalButtonPressed:" destination="CCQ-sb-ubK" eventType="touchUpInside" id="i45-d0-yco"/>
                                                 </connections>
@@ -378,133 +410,164 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-Fd-DTV">
                                                 <rect key="frame" x="130.33333333333334" y="0.0" width="125.66666666666666" height="63"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="50"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="fontColor1"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="SUa-gN-CgS">
-                                        <rect key="frame" x="0.0" y="117.66666666666666" width="386" height="244.99999999999997"/>
+                                        <rect key="frame" x="0.0" y="117.66666666666664" width="386" height="245.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Your Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0r3-N5-nbU">
-                                                <rect key="frame" x="0.0" y="0.0" width="386" height="21.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="386" height="21.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friendliness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3G-F8-Hjj">
-                                                <rect key="frame" x="0.0" y="22.333333333333343" width="386" height="21.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="22.666666666666686" width="386" height="21.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-2" maxValue="2" minimumValueImage="hand.thumbsdown.fill" catalog="system" maximumValueImage="hand.thumbsup.fill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfi-hm-EDl">
-                                                <rect key="frame" x="-2" y="45" width="390" height="33"/>
+                                                <rect key="frame" x="-2" y="45" width="390" height="33.333333333333343"/>
+                                                <color key="tintColor" red="0.43921568630000002" green="0.75686274509999996" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.99243928159999995" green="0.0" blue="0.54218267019999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="maximumTrackTintColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="0.40609217110000001" green="0.92370337179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="CCQ-sb-ubK" eventType="valueChanged" id="Gfz-2i-R05"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsT-Ll-iE9">
-                                                <rect key="frame" x="0.0" y="78" width="386" height="21.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="78.333333333333343" width="386" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-2" maxValue="2" minimumValueImage="hand.thumbsdown.fill" catalog="system" maximumValueImage="hand.thumbsup.fill" translatesAutoresizingMaskIntoConstraints="NO" id="5cW-Id-hjv">
-                                                <rect key="frame" x="-2" y="100.66666666666666" width="390" height="33.333333333333343"/>
+                                                <rect key="frame" x="-2" y="101.00000000000003" width="390" height="33.333333333333343"/>
+                                                <color key="tintColor" red="0.43921568630000002" green="0.75686274509999996" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.99243928159999995" green="0.0" blue="0.54218267019999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="maximumTrackTintColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="0.40609217110000001" green="0.92370337179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="CCQ-sb-ubK" eventType="valueChanged" id="QXE-Tp-e89"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attentiveness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcS-9s-NVI">
-                                                <rect key="frame" x="0.0" y="134.00000000000003" width="386" height="21.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="134.33333333333334" width="386" height="21.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-2" maxValue="2" minimumValueImage="hand.thumbsdown.fill" catalog="system" maximumValueImage="hand.thumbsup.fill" translatesAutoresizingMaskIntoConstraints="NO" id="mxW-ux-370">
-                                                <rect key="frame" x="-2" y="156.33333333333334" width="390" height="33.333333333333343"/>
+                                                <rect key="frame" x="-2" y="156.66666666666666" width="390" height="33.333333333333343"/>
+                                                <color key="tintColor" red="0.43921568630000002" green="0.75686274509999996" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.99243928159999995" green="0.0" blue="0.54218267019999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="maximumTrackTintColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="0.40609217110000001" green="0.92370337179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="CCQ-sb-ubK" eventType="valueChanged" id="KfP-MO-LAU"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyX-H6-J1L">
-                                                <rect key="frame" x="0.0" y="189.66666666666666" width="386" height="21.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="190.00000000000003" width="386" height="21.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-2" maxValue="2" minimumValueImage="hand.thumbsdown.fill" catalog="system" maximumValueImage="hand.thumbsup.fill" translatesAutoresizingMaskIntoConstraints="NO" id="w5d-CK-vND">
-                                                <rect key="frame" x="-2" y="212.00000000000003" width="390" height="34"/>
+                                                <rect key="frame" x="-2" y="212.66666666666666" width="390" height="33.666666666666657"/>
+                                                <color key="tintColor" red="0.43921568630000002" green="0.75686274509999996" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.99243928159999995" green="0.0" blue="0.54218267019999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="maximumTrackTintColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="0.40609217110000001" green="0.92370337179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="CCQ-sb-ubK" eventType="valueChanged" id="fGT-wK-aQW"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillProportionally" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-zY-ypZ">
-                                        <rect key="frame" x="0.0" y="371.66666666666669" width="386" height="111.66666666666669"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-zY-ypZ">
+                                        <rect key="frame" x="0.0" y="372" width="386" height="111"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="bSW-N0-jnK">
-                                                <rect key="frame" x="0.0" y="0.0" width="168.66666666666666" height="99"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="bSW-N0-jnK">
+                                                <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of People:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91Q-OQ-78f">
-                                                        <rect key="frame" x="14" y="0.0" width="141" height="20"/>
+                                                        <rect key="frame" x="15" y="0.0" width="141" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtf-uX-MqN">
-                                                        <rect key="frame" x="46.333333333333336" y="34" width="76.333333333333314" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oG9-km-IYK">
-                                                        <rect key="frame" x="60" y="68" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="roundtipSwitchToggle:" destination="CCQ-sb-ubK" eventType="valueChanged" id="9E3-Rz-h6z"/>
-                                                        </connections>
-                                                    </switch>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kQj-vI-3gy">
+                                                        <rect key="frame" x="47.333333333333336" y="43" width="76.333333333333314" height="57"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtf-uX-MqN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="20"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oG9-km-IYK">
+                                                                <rect key="frame" x="13.666666666666664" y="26" width="51" height="31"/>
+                                                                <color key="onTintColor" red="0.62631527405439869" green="0.97680455450000003" blue="0.79632024334151708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="thumbTintColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <connections>
+                                                                    <action selector="roundtipSwitchToggle:" destination="CCQ-sb-ubK" eventType="valueChanged" id="9E3-Rz-h6z"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uFR-rY-qkr">
-                                                <rect key="frame" x="180.66666666666666" y="0.0" width="11.666666666666657" height="20"/>
+                                                <rect key="frame" x="180.66666666666666" y="0.0" width="12" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-5J-RyH">
                                                         <rect key="frame" x="1" y="0.0" width="9.6666666666666661" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.054901960780000002" green="0.84705882349999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="oVE-mr-cIk">
-                                                <rect key="frame" x="204.33333333333337" y="0.0" width="181.66666666666663" height="104"/>
+                                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="oVE-mr-cIk">
+                                                <rect key="frame" x="202.66666666666663" y="0.0" width="183.33333333333337" height="103"/>
                                                 <subviews>
                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uOk-w5-DJI">
-                                                        <rect key="frame" x="43.666666666666657" y="0.0" width="94" height="32"/>
+                                                        <rect key="frame" x="44.666666666666657" y="0.0" width="94" height="32"/>
+                                                        <color key="backgroundColor" red="0.43044933340000002" green="1" blue="0.75681493532738853" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="partySizeStepperPressed:" destination="CCQ-sb-ubK" eventType="valueChanged" id="9Cn-VA-4jP"/>
                                                         </connections>
                                                     </stepper>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standard Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBp-YJ-hRw">
-                                                        <rect key="frame" x="42.666666666666657" y="41" width="96" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Tip %" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AdM-Ot-fN3">
-                                                        <rect key="frame" x="16.666666666666657" y="70" width="148" height="34"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BCe-gh-NMc">
+                                                        <rect key="frame" x="17.666666666666686" y="43" width="148" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standard Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBp-YJ-hRw">
+                                                                <rect key="frame" x="25.999999999999972" y="0.0" width="96" height="20"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Tip %" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AdM-Ot-fN3">
+                                                                <rect key="frame" x="0.0" y="26" width="148" height="34"/>
+                                                                <color key="backgroundColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="0.9086260947" colorSpace="calibratedRGB"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="1UT-hM-8lo">
-                                        <rect key="frame" x="0.0" y="492.33333333333337" width="386" height="142"/>
+                                        <rect key="frame" x="0.0" y="492" width="386" height="142"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Eso-3U-AFm">
                                                 <rect key="frame" x="0.0" y="5" width="176.66666666666666" height="132"/>
@@ -512,25 +575,25 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BWx-Ya-7xy">
                                                         <rect key="frame" x="45.666666666666664" y="0.0" width="85.333333333333343" height="40"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="34"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating based tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBl-Dh-kwM">
                                                         <rect key="frame" x="26.999999999999993" y="44" width="122.33333333333331" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Fl-Sw-jCx">
                                                         <rect key="frame" x="45.666666666666664" y="68" width="85.333333333333343" height="40"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="34"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip per person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llr-Uy-0sg">
                                                         <rect key="frame" x="34.000000000000007" y="112" width="108.66666666666669" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -541,25 +604,25 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="L6b-QZ-1Da">
                                                         <rect key="frame" x="45.333333333333336" y="0.0" width="85.333333333333314" height="40"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="34"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standard Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYg-fV-rsH">
                                                         <rect key="frame" x="40.000000000000028" y="44" width="96" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q1b-cK-coR">
                                                         <rect key="frame" x="45.333333333333336" y="68" width="85.333333333333314" height="40"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="34"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each person pays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lP5-d5-hyH">
                                                         <rect key="frame" x="21.333333333333343" y="112" width="133.33333333333334" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -567,12 +630,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qcT-6s-yj4">
-                                        <rect key="frame" x="0.0" y="643.33333333333337" width="386" height="110.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="643" width="386" height="111"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji3-Rj-uK5">
                                                 <rect key="frame" x="112" y="0.0" width="162" height="50.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="28"/>
                                                 <state key="normal" title="Calculate Tip">
+                                                    <color key="titleColor" red="0.1764705882" green="0.8862745098" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                                 </state>
                                                 <connections>
@@ -580,9 +644,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kin-aw-y8Z">
-                                                <rect key="frame" x="150.66666666666666" y="60.333333333333258" width="85" height="50.333333333333343"/>
+                                                <rect key="frame" x="150.66666666666666" y="60.333333333333371" width="85" height="50.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                                <state key="normal" title="Review it!"/>
+                                                <state key="normal" title="Review it!">
+                                                    <color key="titleColor" red="0.1764705882" green="0.8862745098" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="reviewButtonPressed:" destination="CCQ-sb-ubK" eventType="touchUpInside" id="owv-hk-rIw"/>
                                                 </connections>
@@ -592,7 +658,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.12941176469999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ILz-Uv-z37" firstAttribute="leading" secondItem="C1n-MJ-Adq" secondAttribute="leading" constant="14" id="0x7-op-Mo5"/>
                             <constraint firstItem="5ps-Mj-1WP" firstAttribute="trailing" secondItem="ILz-Uv-z37" secondAttribute="trailing" constant="14" id="PPq-VQ-Dhb"/>
@@ -633,9 +699,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="z1V-MZ-eWc">
-                            <rect key="frame" x="0.0" y="0.0" width="453" height="44"/>
+                        <color key="sectionIndexColor" name="fontColor1"/>
+                        <color key="sectionIndexBackgroundColor" name="appBackground"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Reviews" id="z1V-MZ-eWc">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" name="backColor2"/>
+                            <color key="barTintColor" name="appBackground"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="0Zz-O9-XlW" id="i9s-DC-tKY"/>
@@ -673,13 +743,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Restaraunts Reviews" id="7Om-K5-tp4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iK6-wn-W64">
-                            <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="iK6-wn-W64">
+                            <color key="tintColor" red="0.43044933340000002" green="1" blue="0.54218267019999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="0Zz-O9-XlW" id="v0M-Fz-GqW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchbar" destination="z1V-MZ-eWc" id="FSv-KK-pyJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrf-UL-J7Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -692,7 +765,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yeS-hI-U4A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.43044933340000002" green="1" blue="0.54218267019999999" alpha="0.66724721337579618" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.43044933340000002" green="1" blue="0.75681493529999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="CCQ-sb-ubK" kind="relationship" relationship="viewControllers" id="xm1-Fn-bdv"/>
@@ -714,6 +789,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jeV-f4-TAX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="backColor2"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -732,5 +808,20 @@
         <image name="hand.thumbsup.fill" catalog="system" width="64" height="62"/>
         <image name="scissors" catalog="system" width="64" height="46"/>
         <image name="star" catalog="system" width="64" height="58"/>
+        <namedColor name="appBackground">
+            <color red="0.050980392159999999" green="0.12941176469999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="backColor2">
+            <color red="0.12549019610000001" green="0.54117647059999996" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="fontColor1">
+            <color red="0.054901960780000002" green="0.84705882349999995" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="fontColor2">
+            <color red="0.25098039220000001" green="0.87843137250000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="fontColor3">
+            <color red="0.062745098040000002" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

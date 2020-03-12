@@ -21,7 +21,7 @@ class ItemizationViewController: UIViewController {
     @IBOutlet weak var personTextField: UITextField!
     @IBOutlet weak var addItemButton: UIButton!
     
-
+    
     
     var cell: UITableViewCell = UITableViewCell()
     var concatString: String? = ""
@@ -62,7 +62,11 @@ class ItemizationViewController: UIViewController {
         itemCost.isEnabled = false
         personTextField.isEnabled = false
         addItemButton.isEnabled = false
+        addItemButton.setTitleColor( #colorLiteral(red: 0, green: 0.5509557724, blue: 0.6975272298, alpha: 1), for: .disabled)
         
+        for tf in textFields {
+            tf.attributedPlaceholder = NSAttributedString(string: tf.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
+        }
     }
     
     //MARK: - Swipe Gesture Test
@@ -260,6 +264,9 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         cell.detailTextLabel?.numberOfLines = 3; // set the numberOfLines
         cell.textLabel?.font = UIFont(name: chosenFont, size: 18)
         cell.detailTextLabel?.lineBreakMode = .byTruncatingTail;
+        cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0.862623632, blue: 0.7772392631, alpha: 1)
+        cell.detailTextLabel?.textColor = #colorLiteral(red: 0, green: 0.894530952, blue: 0.8858652711, alpha: 1)
+        
         // Configure the cell...
         
         cell.textLabel?.text = person
@@ -276,12 +283,14 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
             itemCost.isEnabled = false
             personTextField.isEnabled = false
             addItemButton.isEnabled = false
+            //addItemButton.titleLabel?.textColor = #colorLiteral(red: 0, green: 0.5509557724, blue: 0.6975272298, alpha: 1)
         }
         else {
             itemName.isEnabled = true
             itemCost.isEnabled = true
             personTextField.isEnabled = true
             addItemButton.isEnabled = true
+            addItemButton.titleLabel?.textColor = #colorLiteral(red: 0, green: 0.8935413957, blue: 0.8169435859, alpha: 1)
         }
     }
     
@@ -297,11 +306,23 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         if !personList.isEmpty
         {
             personTextField.text = personList[0]
         }
+        
         return personList[row]
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        let titleData = personList[row]
+        
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Roboto", size: 17.0)!,NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.8935413957, blue: 0.8169435859, alpha: 1)])
+        
+        return myTitle
+        
     }
     
     
@@ -313,8 +334,10 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     func createPickerView() {
         let pickerView = UIPickerView()
+        pickerView.backgroundColor = #colorLiteral(red: 0, green: 0.5509557724, blue: 0.6975272298, alpha: 1)
         pickerView.delegate = self
         personTextField.inputView = pickerView
+        
         
         
         
@@ -323,9 +346,11 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
-        
+        button.tintColor = #colorLiteral(red: 0.0194743108, green: 0.1317860186, blue: 0.297239691, alpha: 1)
         toolBar.setItems([button], animated: true)
         toolBar.isUserInteractionEnabled = true
+        toolBar.backgroundColor = #colorLiteral(red: 0, green: 0.5509557724, blue: 0.6975272298, alpha: 1)
+        
         personTextField.inputAccessoryView = toolBar
     }
     

@@ -13,6 +13,7 @@ class WhoPaysViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var randomPersonText: UITextView!
+
     
     var personList: [String] = []
     
@@ -26,11 +27,12 @@ class WhoPaysViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
         self.view.addGestureRecognizer(swipeLeft)
-        textView.backgroundColor = .darkGray
-        textView.textColor = .white
-        randomPersonText.textColor = .red
+        //textView.backgroundColor = .darkGray
+        //textView.textColor = .white
+        //randomPersonText.textColor = .red
         randomPersonText.textAlignment = .center
-        textField.text = "Add a person here"
+        textField.placeholder = "Add a person here"
+        textField.attributedPlaceholder = NSAttributedString(string: "Add a person here", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         // Do any additional setup after loading the view.
     }
     
@@ -56,6 +58,7 @@ class WhoPaysViewController: UIViewController {
         
         textView.text = ""
         var message = ""
+        
         if textView != nil{
             //adding text field items into an array
             if textField.hasText {
@@ -71,6 +74,25 @@ class WhoPaysViewController: UIViewController {
         
         textView.text = message
         textField.text = ""
+        
+    }
+    
+    @IBAction func doneAdding(_ sender: UIButton) {
+
+            let alertController = UIAlertController(title: "Take Action", message: "Shake your phone to see who pays!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+        textField.resignFirstResponder()
+        
+    }
+    
+    @IBAction func doneEditing(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func backgroundTouched(_ sender: UIControl) {
+        textField.resignFirstResponder()
     }
     
     //MARK: - Functions
@@ -81,7 +103,7 @@ class WhoPaysViewController: UIViewController {
         }
         
         //randomPersonText.text = randomPerson
-        
+        randomPersonText.textColor = #colorLiteral(red: 1, green: 0.1896584928, blue: 0.6110333204, alpha: 1)
     }
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -92,14 +114,7 @@ class WhoPaysViewController: UIViewController {
         
     }
     
-    @IBAction func doneAdding(_ sender: UIButton) {
 
-            let alertController = UIAlertController(title: "Take Action", message: "Shake your phone to see who pays!", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-            
-        
-    }
     
     
 }
