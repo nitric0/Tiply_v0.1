@@ -57,6 +57,8 @@ class TipCalculatorViewController: UIViewController {
         
         billTotalInput.attributedPlaceholder = NSAttributedString(string: "Enter Bill Total", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         standardTipTextField.attributedPlaceholder = NSAttributedString(string: "Choose Tip %", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
+        
+        self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.5)
     }
     
     //MARK: - Swipe Gesture Test
