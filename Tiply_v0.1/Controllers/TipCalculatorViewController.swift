@@ -225,6 +225,7 @@ extension  TipCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        standardTipTextField.text = tipList[0]
         return tipList.count
     }
     
@@ -242,6 +243,7 @@ extension  TipCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataSo
         let pickerView = UIPickerView()
         pickerView.delegate = self
         standardTipTextField.inputView = pickerView
+        
     }
     func dismissPickerView() {
         let toolBar = UIToolbar()

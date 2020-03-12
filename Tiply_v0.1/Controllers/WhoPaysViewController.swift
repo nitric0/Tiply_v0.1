@@ -92,4 +92,14 @@ class WhoPaysViewController: UIViewController {
         
     }
     
+    @IBAction func doneAdding(_ sender: UIButton) {
+
+            let alertController = UIAlertController(title: "Take Action", message: "Shake your phone to see who pays!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+        
+    }
+    
+    
 }

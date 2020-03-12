@@ -55,12 +55,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake Your Phone To See Who Pays!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htL-jE-keC">
-                                <rect key="frame" x="20" y="502" width="374" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Person Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-tv-Z5M">
                                 <rect key="frame" x="20" y="608.5" width="374" height="52"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -77,29 +71,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-1g-LIb">
+                                <rect key="frame" x="115" y="535" width="185" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Done Adding Lucky People">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneAdding:" destination="Ewl-Ho-2ut" eventType="touchUpInside" id="0ZJ-gX-1jn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="0Fr-ax-ZC7" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="165" id="0Na-Dl-SOh"/>
+                            <constraint firstItem="OCh-1g-LIb" firstAttribute="top" secondItem="akJ-A5-uWt" secondAttribute="bottom" constant="64" id="2dN-RZ-Dz2"/>
                             <constraint firstItem="Nzz-51-bE2" firstAttribute="top" secondItem="DOJ-Hv-Fxf" secondAttribute="bottom" constant="30" id="5H3-zg-XZB"/>
                             <constraint firstItem="XPC-tv-Z5M" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="5WJ-Ql-Tgm"/>
-                            <constraint firstItem="htL-jE-keC" firstAttribute="top" secondItem="akJ-A5-uWt" secondAttribute="bottom" constant="31" id="7yn-Fa-ieq"/>
                             <constraint firstItem="Nzz-51-bE2" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="20" id="98m-Rg-9JC"/>
                             <constraint firstItem="akJ-A5-uWt" firstAttribute="leading" secondItem="XPC-tv-Z5M" secondAttribute="leading" id="Cg9-Ud-gC2"/>
                             <constraint firstItem="9Dp-bO-UzY" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="QtN-UC-kt9"/>
+                            <constraint firstItem="OCh-1g-LIb" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="115" id="R0G-rC-bvL"/>
                             <constraint firstItem="akJ-A5-uWt" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="TXt-Sw-jRq"/>
                             <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="0Fr-ax-ZC7" secondAttribute="trailing" constant="165" id="Ufg-Et-v76"/>
                             <constraint firstItem="XPC-tv-Z5M" firstAttribute="top" secondItem="9Dp-bO-UzY" secondAttribute="bottom" constant="8" id="Xlr-VA-FbI"/>
-                            <constraint firstItem="htL-jE-keC" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="YzC-BP-Ajp"/>
+                            <constraint firstItem="9Dp-bO-UzY" firstAttribute="top" secondItem="OCh-1g-LIb" secondAttribute="bottom" constant="8" id="ZYm-ih-wsS"/>
                             <constraint firstItem="akJ-A5-uWt" firstAttribute="leading" secondItem="Nzz-51-bE2" secondAttribute="leading" id="c8J-oW-17l"/>
+                            <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="OCh-1g-LIb" secondAttribute="trailing" constant="114" id="dQM-M3-9PG"/>
                             <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="Nzz-51-bE2" secondAttribute="trailing" constant="20" id="diq-og-6Td"/>
                             <constraint firstItem="DOJ-Hv-Fxf" firstAttribute="top" secondItem="F9I-LM-GZ7" secondAttribute="top" constant="20" id="g4j-rN-Zno"/>
-                            <constraint firstItem="akJ-A5-uWt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="htL-jE-keC" secondAttribute="trailing" id="hQd-fU-TWS"/>
                             <constraint firstItem="P8j-an-Wu4" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="ipm-in-xYu"/>
                             <constraint firstItem="P8j-an-Wu4" firstAttribute="top" secondItem="0Fr-ax-ZC7" secondAttribute="bottom" constant="35" id="k88-xX-0oQ"/>
                             <constraint firstItem="0Fr-ax-ZC7" firstAttribute="top" secondItem="Nzz-51-bE2" secondAttribute="bottom" constant="25" id="k9G-Hh-hqs"/>
-                            <constraint firstItem="9Dp-bO-UzY" firstAttribute="top" secondItem="htL-jE-keC" secondAttribute="bottom" constant="44.5" id="lxL-sF-xwa"/>
-                            <constraint firstItem="akJ-A5-uWt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="htL-jE-keC" secondAttribute="leading" id="rhd-XH-wKv"/>
                             <constraint firstItem="akJ-A5-uWt" firstAttribute="trailing" secondItem="XPC-tv-Z5M" secondAttribute="trailing" id="ryZ-GV-q8q"/>
                             <constraint firstItem="akJ-A5-uWt" firstAttribute="top" secondItem="P8j-an-Wu4" secondAttribute="bottom" constant="2" id="sCh-lq-iIi"/>
                             <constraint firstItem="DOJ-Hv-Fxf" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="tPE-BD-5Ia"/>
