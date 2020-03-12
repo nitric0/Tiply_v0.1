@@ -18,39 +18,38 @@ class ReviewViewController: SwipeTableViewController{
         
         super.viewDidLoad()
         //Swiping gesture for tab bar controller
-                  let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
-                  swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-                  self.view.addGestureRecognizer(swipeRight)
-                  
-                  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
-                  swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-                  self.view.addGestureRecognizer(swipeLeft)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
         // Do any additional setup after loading the view.
         loadItems()
     }
-    //Swipe Gesture Test
+    //MARK: - Swipe Gesture Test
     @objc func swiped(_ gesture: UISwipeGestureRecognizer)
-       {
-           if gesture.direction == .left {
-               if (self.tabBarController?.selectedIndex)! < 4 {
-                   self.tabBarController?.selectedIndex += 1
-                   
-               }
-           }
-           else if gesture.direction == .right {
-               if (self.tabBarController?.selectedIndex)! > 0 {
-                              self.tabBarController?.selectedIndex -= 1
-                              
-                          }
-           }
-       }
+    {
+        if gesture.direction == .left {
+            if (self.tabBarController?.selectedIndex)! < 4 {
+                self.tabBarController?.selectedIndex += 1
+                
+            }
+        }
+        else if gesture.direction == .right {
+            if (self.tabBarController?.selectedIndex)! > 0 {
+                self.tabBarController?.selectedIndex -= 1
+                
+            }
+        }
+    }
     
     //MARK - Tableview Datasource Methods
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
@@ -58,17 +57,16 @@ class ReviewViewController: SwipeTableViewController{
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "\(String(describing: item.rating!)) Stars"
         }
-
+        
         
         //cell.accessoryType = item.done ? .checkmark : .none
         
         return cell
     }
     
-    //MARK - TableView Delegate Methods
-    //Adding Checkmarks and deselection
+    //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
+        
         //to delete items by clicking on them
         //context.delete(itemArray[indexPath.row])
         //itemArray.remove(at: indexPath.row)
@@ -82,7 +80,7 @@ class ReviewViewController: SwipeTableViewController{
     }
     
     
-    //MARK - Add new Items
+    //MARK: - Add new Items
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         var ratingField = UITextField()
@@ -108,15 +106,15 @@ class ReviewViewController: SwipeTableViewController{
         }
         
         alert.addTextField { (alertTextField2) in
-                   alertTextField2.placeholder = "Create New Rating"
-                   ratingField = alertTextField2
-                   
-               }
+            alertTextField2.placeholder = "Create New Rating"
+            ratingField = alertTextField2
+            
+        }
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-//MARK: - Model Manipulation Methods
+    //MARK: - Model Manipulation Methods
     func saveItems()
     {
         do {
@@ -132,7 +130,7 @@ class ReviewViewController: SwipeTableViewController{
     {
         let request : NSFetchRequest<Restaraunt> = Restaraunt.fetchRequest()
         do {
-           itemArray = try context.fetch(request)
+            itemArray = try context.fetch(request)
         } catch {
             print("Error for load items \(error)")
         }
@@ -151,16 +149,13 @@ class ReviewViewController: SwipeTableViewController{
             }
             
         }
-
     }
-    
-
 }
 //MARK: - Search Bar Methods
 extension ReviewViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
+        
         let request : NSFetchRequest<Restaraunt> = Restaraunt.fetchRequest()
         //Query filter
         //print(searchBar.text)
@@ -174,7 +169,7 @@ extension ReviewViewController: UISearchBarDelegate {
         
         //run requests and fetch results
         do {
-           itemArray = try context.fetch(request)
+            itemArray = try context.fetch(request)
         } catch {
             print("Error for load items \(error)")
         }
@@ -190,11 +185,11 @@ extension ReviewViewController: UISearchBarDelegate {
         {
             loadItems()
             DispatchQueue.main.async {
-                  searchBar.resignFirstResponder()
+                searchBar.resignFirstResponder()
+            }
+            
+            
         }
         
-
-        }
-      
     }
 }

@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daG-y6-ysr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="386"/>
+            <point key="canvasLocation" x="1500" y="257"/>
         </scene>
         <!--Itemization-->
         <scene sceneID="TYu-l5-gvE">
@@ -241,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIW-l6-JJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602.89855072463774" y="386.38392857142856"/>
+            <point key="canvasLocation" x="493" y="479"/>
         </scene>
         <!--Tip Calculator-->
         <scene sceneID="lo1-fp-Gq8">
@@ -444,7 +444,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji3-Rj-uK5">
-                                <rect key="frame" x="21" y="735" width="372" height="46"/>
+                                <rect key="frame" x="21" y="708" width="372" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Calculate Tip"/>
@@ -465,6 +465,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kin-aw-y8Z">
+                                <rect key="frame" x="22" y="762" width="372" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <state key="normal" title="Review it!"/>
+                                <connections>
+                                    <action selector="reviewButtonPressed:" destination="CCQ-sb-ubK" eventType="touchUpInside" id="owv-hk-rIw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="5ps-Mj-1WP"/>
@@ -491,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQ6-XY-xAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640.57971014492762" y="-256.47321428571428"/>
+            <point key="canvasLocation" x="432" y="-655"/>
         </scene>
         <!--Restaraunts Reviews-->
         <scene sceneID="NhA-ai-WIT">
@@ -551,7 +560,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrf-UL-J7Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2410.144927536232" y="-256.47321428571428"/>
+            <point key="canvasLocation" x="2414" y="-417"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="N5v-hV-FFR">
@@ -590,7 +599,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyi-xr-LT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500.0000000000002" y="-256.47321428571428"/>
+            <point key="canvasLocation" x="1500" y="-417"/>
         </scene>
     </scenes>
     <resources>

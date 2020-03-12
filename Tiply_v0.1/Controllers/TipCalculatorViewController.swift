@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
-
+class TipCalculatorViewController: UIViewController {
+    
+    
     @IBOutlet weak var billTotalInput: UITextField!
     @IBOutlet weak var billTotalLabel: UILabel!
     @IBOutlet weak var partySizeStepper: UIStepper!
@@ -20,7 +20,6 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var tipperPersonLabel: UILabel!
     @IBOutlet weak var totalperPersonLabel: UILabel!
     @IBOutlet weak var standardTipTextField: UITextField!
-    
     @IBOutlet var ratingSliders: [UISlider]!
     
     var tipModifier : Float = 100.0
@@ -39,15 +38,15 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         
         //Swiping gesture for tab bar controller
-           let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
-           swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-           self.view.addGestureRecognizer(swipeRight)
-           
-           let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
-           swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-           self.view.addGestureRecognizer(swipeLeft)
-           
-
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        
         // Do any additional setup after loading the view.
         createPickerView()
         dismissPickerView()
@@ -57,22 +56,28 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         partySizeStepper.value = 1
     }
     
-    //Swipe Gesture Test
+    //MARK: - Swipe Gesture Test
     @objc func swiped(_ gesture: UISwipeGestureRecognizer)
-       {
-           if gesture.direction == .left {
-               if (self.tabBarController?.selectedIndex)! < 4 {
-                   self.tabBarController?.selectedIndex += 1
-                   
-               }
-           }
-           else if gesture.direction == .right {
-               if (self.tabBarController?.selectedIndex)! > 0 {
-                              self.tabBarController?.selectedIndex -= 1
-                              
-                          }
-           }
-       }
+    {
+        if gesture.direction == .left {
+            if (self.tabBarController?.selectedIndex)! < 4 {
+                self.tabBarController?.selectedIndex += 1
+                
+            }
+        }
+        else if gesture.direction == .right {
+            if (self.tabBarController?.selectedIndex)! > 0 {
+                self.tabBarController?.selectedIndex -= 1
+                
+            }
+        }
+    }
+    //MARK: - IBActions
+    
+    @IBAction func reviewButtonPressed(_ sender: UIButton) {
+        self.tabBarController?.selectedIndex = 3
+    }
+    
     @IBAction func updateTotalButtonPressed(_ sender: UIButton) {
         
         if let textIn = billTotalInput.text {
@@ -103,34 +108,22 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
                 } else {
                     title = "Non Numerical Quantity"
                     message = "Please Enter Quantity as Numerical Value"
-
+                    
                     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {action in
                         // reset the textfield
                         self.billTotalInput.text = ""
                         
                     }))
-
+                    
                     self.present(alertController, animated: true, completion: nil)
                 }
                 
             }
         }
     }
-    func calculateTipModifier()
-    {
-        var sliderTotals : Float = 0.0
-        for slider in ratingSliders {
-            sliderTotals += (slider.value/1.5)
-        }
-        sliderTotals *= 10
 
-        tipModifier = 100 + sliderTotals
-    }
-    
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        
-        
         if let bText = billTotalLabel.text {
             if (bText.isEmpty || bText == "$0.00")
             {
@@ -140,37 +133,45 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
                 self.present(alertController, animated: true, completion: nil)
                 
             } else {
-                
                 // calculate rating based tip
                 calculateTipModifier()
                 let modifier = Double((Double(tipModifier/100) * 20)/100)
                 var tip = billTotal * modifier
-               
+                
                 if (roundTip) {
                     tip = ceil(tip)
                 }
                 rbTipLabel.text = convertDoubleToCurrency(amount: tip)
-               
+                
                 // calculate tip person
                 tipPerPerson = tip / Double(numPeople)
                 tipperPersonLabel.text = convertDoubleToCurrency(amount: tipPerPerson)
                 let total = billTotal + tip
-               
+                
                 // calculate total per person
                 totalPerPerson = total / Double(numPeople)
                 totalperPersonLabel.text = convertDoubleToCurrency(amount: totalPerPerson)
-                
                 
                 // standard tip label
                 let sTip = getStandardTip(selectedTip)
                 standardTipLabel.text = convertDoubleToCurrency(amount: sTip)
                 
-                   
             }
         }
-   
+        
     }
     
+    @IBAction func editEnded(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func backgroundTouched(_ sender: UIControl) {
+        billTotalInput.resignFirstResponder()
+    }
+    
+    @IBAction func sliderMoved(_ sender: UISlider) {
+        sender.value = roundf(sender.value)
+    }
     
     @IBAction func partySizeStepperPressed(_ sender: UIStepper) {
         partySizeLabel.text = Int(sender.value).description
@@ -183,11 +184,24 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         roundTip = sender.isOn
     }
     
+    //MARK: - Functions
+    func calculateTipModifier()
+    {
+        var sliderTotals : Float = 0.0
+        for slider in ratingSliders {
+            sliderTotals += (slider.value/1.5)
+        }
+        sliderTotals *= 10
+        
+        tipModifier = 100 + sliderTotals
+    }
+    
+    
     func convertCurrencyToDouble(input: String) -> Double? {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         numberFormatter.locale = Locale.current
-            
+        
         return numberFormatter.number(from: input)?.doubleValue
         
     }
@@ -199,14 +213,12 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         return numberFormatter.string(from: NSNumber(value: amount))!
     }
-    @IBAction func editEnded(_ sender: UITextField) {
-        sender.resignFirstResponder()
-    }
-    @IBAction func backgroundTouched(_ sender: UIControl) {
-        billTotalInput.resignFirstResponder()
-    }
+
     
-    
+}
+
+//MARK: - TipCalculatorViewController extension
+extension  TipCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     //-------------PICKER------------
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 //number of session
@@ -227,21 +239,21 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     func createPickerView() {
-           let pickerView = UIPickerView()
-           pickerView.delegate = self
-           standardTipTextField.inputView = pickerView
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        standardTipTextField.inputView = pickerView
     }
     func dismissPickerView() {
-       let toolBar = UIToolbar()
-       toolBar.sizeToFit()
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
         
-       toolBar.setItems([button], animated: true)
-       toolBar.isUserInteractionEnabled = true
-       standardTipTextField.inputAccessoryView = toolBar
+        toolBar.setItems([button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        standardTipTextField.inputAccessoryView = toolBar
     }
     @objc func action() {
-          view.endEditing(true)
+        view.endEditing(true)
     }
     
     
@@ -260,20 +272,4 @@ class TipCalculatorViewController: UIViewController, UIPickerViewDelegate, UIPic
         return result
     }
     //-------------END PICKER------------
-    
-    
-    @IBAction func sliderMoved(_ sender: UISlider) {
-        sender.value = roundf(sender.value)
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
