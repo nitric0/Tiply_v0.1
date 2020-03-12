@@ -34,6 +34,8 @@ class WhoPaysViewController: UIViewController {
         textField.placeholder = "Add a person here"
         textField.attributedPlaceholder = NSAttributedString(string: "Add a person here", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         // Do any additional setup after loading the view.
+        
+       
     }
     
     //MARK: - Swipe Gesture Test
@@ -94,6 +96,8 @@ class WhoPaysViewController: UIViewController {
     @IBAction func backgroundTouched(_ sender: UIControl) {
         textField.resignFirstResponder()
     }
+    
+    
     
     //MARK: - Functions
     func randomPersons() {

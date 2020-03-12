@@ -56,7 +56,7 @@
                                 <color key="textColor" name="fontColor3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List of people..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-A5-uWt">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="List of people..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-A5-uWt">
                                 <rect key="frame" x="20" y="290.66666666666669" width="374" height="185"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="185" id="beQ-YE-fWI"/>
@@ -65,7 +65,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Person Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-tv-Z5M">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Person Name" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-tv-Z5M">
                                 <rect key="frame" x="20" y="612" width="374" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="LNA-ah-eHi"/>
