@@ -21,64 +21,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Pays?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOJ-Hv-Fxf">
-                                <rect key="frame" x="130.5" y="64" width="153" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <rect key="frame" x="116.5" y="64" width="181" height="43.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="37"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-51-bE2">
-                                <rect key="frame" x="20" y="132.5" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-51-bE2">
+                                <rect key="frame" x="20" y="137.5" width="374" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="j9F-53-gyO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-ax-ZC7">
-                                <rect key="frame" x="165" y="191.5" width="84" height="30"/>
+                                <rect key="frame" x="158" y="196.5" width="98" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="i7t-WC-gO8"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <state key="normal" title="Add Person"/>
                                 <connections>
                                     <action selector="addPerson:" destination="Ewl-Ho-2ut" eventType="touchUpInside" id="o8s-kS-Pjk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lucky People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-an-Wu4">
-                                <rect key="frame" x="119" y="256.5" width="176.5" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <rect key="frame" x="117.5" y="261.5" width="179.5" height="27"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List of people..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-A5-uWt">
-                                <rect key="frame" x="20" y="286" width="374" height="185"/>
+                                <rect key="frame" x="20" y="290.5" width="374" height="185"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="185" id="beQ-YE-fWI"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Person Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-tv-Z5M">
-                                <rect key="frame" x="20" y="608.5" width="374" height="52"/>
+                                <rect key="frame" x="20" y="598" width="374" height="52"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="LNA-ah-eHi"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lucky Person Is..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dp-bO-UzY">
-                                <rect key="frame" x="98.5" y="573" width="217.5" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Lucky Person Is..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dp-bO-UzY">
+                                <rect key="frame" x="87" y="568" width="241" height="35"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-1g-LIb">
-                                <rect key="frame" x="115" y="535" width="185" height="30"/>
+                                <rect key="frame" x="115" y="532.5" width="185" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <state key="normal" title="Done Adding Lucky People">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -89,8 +91,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="0Fr-ax-ZC7" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="165" id="0Na-Dl-SOh"/>
-                            <constraint firstItem="OCh-1g-LIb" firstAttribute="top" secondItem="akJ-A5-uWt" secondAttribute="bottom" constant="64" id="2dN-RZ-Dz2"/>
+                            <constraint firstItem="0Fr-ax-ZC7" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="158" id="0Na-Dl-SOh"/>
+                            <constraint firstItem="OCh-1g-LIb" firstAttribute="top" secondItem="akJ-A5-uWt" secondAttribute="bottom" constant="57" id="2dN-RZ-Dz2"/>
                             <constraint firstItem="Nzz-51-bE2" firstAttribute="top" secondItem="DOJ-Hv-Fxf" secondAttribute="bottom" constant="30" id="5H3-zg-XZB"/>
                             <constraint firstItem="XPC-tv-Z5M" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="5WJ-Ql-Tgm"/>
                             <constraint firstItem="Nzz-51-bE2" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="20" id="98m-Rg-9JC"/>
@@ -98,9 +100,9 @@
                             <constraint firstItem="9Dp-bO-UzY" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="QtN-UC-kt9"/>
                             <constraint firstItem="OCh-1g-LIb" firstAttribute="leading" secondItem="F9I-LM-GZ7" secondAttribute="leading" constant="115" id="R0G-rC-bvL"/>
                             <constraint firstItem="akJ-A5-uWt" firstAttribute="centerX" secondItem="5FN-2D-16u" secondAttribute="centerX" id="TXt-Sw-jRq"/>
-                            <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="0Fr-ax-ZC7" secondAttribute="trailing" constant="165" id="Ufg-Et-v76"/>
+                            <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="0Fr-ax-ZC7" secondAttribute="trailing" constant="158" id="Ufg-Et-v76"/>
                             <constraint firstItem="XPC-tv-Z5M" firstAttribute="top" secondItem="9Dp-bO-UzY" secondAttribute="bottom" constant="8" id="Xlr-VA-FbI"/>
-                            <constraint firstItem="9Dp-bO-UzY" firstAttribute="top" secondItem="OCh-1g-LIb" secondAttribute="bottom" constant="8" id="ZYm-ih-wsS"/>
+                            <constraint firstItem="9Dp-bO-UzY" firstAttribute="top" secondItem="OCh-1g-LIb" secondAttribute="bottom" constant="5.5" id="ZYm-ih-wsS"/>
                             <constraint firstItem="akJ-A5-uWt" firstAttribute="leading" secondItem="Nzz-51-bE2" secondAttribute="leading" id="c8J-oW-17l"/>
                             <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="OCh-1g-LIb" secondAttribute="trailing" constant="114" id="dQM-M3-9PG"/>
                             <constraint firstItem="F9I-LM-GZ7" firstAttribute="trailing" secondItem="Nzz-51-bE2" secondAttribute="trailing" constant="20" id="diq-og-6Td"/>
@@ -123,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daG-y6-ysr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="257"/>
+            <point key="canvasLocation" x="1500.0000000000002" y="256.47321428571428"/>
         </scene>
         <!--Itemization-->
         <scene sceneID="TYu-l5-gvE">
@@ -141,7 +143,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjc-Dx-egw">
-                                <rect key="frame" x="20" y="347" width="88" height="32"/>
+                                <rect key="frame" x="20" y="304" width="88" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="Add Person"/>
@@ -162,7 +164,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StE-sz-SjG">
-                                <rect key="frame" x="184" y="347" width="69" height="32"/>
+                                <rect key="frame" x="184" y="304" width="69" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="Add Item"/>
@@ -177,7 +179,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgM-Vl-kia">
-                                <rect key="frame" x="20" y="387" width="374" height="400"/>
+                                <rect key="frame" x="20" y="344" width="374" height="443"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -214,7 +216,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEm-2h-CG9">
-                                <rect key="frame" x="331" y="347" width="63" height="32"/>
+                                <rect key="frame" x="331" y="304" width="63" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="Clear All"/>

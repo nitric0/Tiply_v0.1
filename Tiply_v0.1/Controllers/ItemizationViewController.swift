@@ -63,7 +63,6 @@ class ItemizationViewController: UIViewController {
         personTextField.isEnabled = false
         addItemButton.isEnabled = false
         
-
     }
     
     //MARK: - Swipe Gesture Test
