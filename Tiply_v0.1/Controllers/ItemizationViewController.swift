@@ -274,7 +274,7 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if personList.count == 1
+        if !personList.isEmpty
         {
             personTextField.text = personList[0]
         }
