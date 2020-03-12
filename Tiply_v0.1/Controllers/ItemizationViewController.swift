@@ -20,6 +20,8 @@ class ItemizationViewController: UIViewController {
     @IBOutlet weak var addPersonTextField: UITextField!
     @IBOutlet weak var personTextField: UITextField!
     
+
+    
     var cell: UITableViewCell = UITableViewCell()
     var concatString: String? = ""
     var globalStr: String? = ""
@@ -29,6 +31,7 @@ class ItemizationViewController: UIViewController {
     var runningTotal : Double = 0.0
     var runningTotalText : String = "$0.00"
     var selectedPerson: String?
+    let chosenFont = "Roboto"
     var personList: [String] = []
     {
         didSet {
@@ -88,8 +91,13 @@ class ItemizationViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         startItem = false
-        
-        
+    }
+    
+    
+    @IBAction func clearButtonPressed(_ sender: UIButton) {
+        for tf in textFields {
+            tf.text = ""
+        }
     }
     
     @IBAction func touchedBackground(_ sender: UIControl) {
@@ -163,6 +171,7 @@ class ItemizationViewController: UIViewController {
                     let indexPath = IndexPath(row: i, section: globalIndexPath.section)
                     cell = tableView.cellForRow(at: indexPath)!
                     print(cell.textLabel?.text! ?? "")
+                    cell.detailTextLabel?.font = UIFont(name: chosenFont, size: 14)
                     cell.detailTextLabel?.text = itemList[i]
                     //tableView.reloadData()
                     //tableView.endUpdates()
@@ -242,6 +251,7 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         globalIndexPath = indexPath
         cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
         cell.detailTextLabel?.numberOfLines = 3; // set the numberOfLines
+        cell.textLabel?.font = UIFont(name: chosenFont, size: 18)
         cell.detailTextLabel?.lineBreakMode = .byTruncatingTail;
         // Configure the cell...
         
