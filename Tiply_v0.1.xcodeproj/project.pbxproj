@@ -18,10 +18,25 @@
 		4158461E24107BAF00B48876 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158461D24107BAF00B48876 /* ReviewViewController.swift */; };
 		4158462024107C9500B48876 /* ItemizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158461F24107C9500B48876 /* ItemizationViewController.swift */; };
 		6548B4D824196FE3006AD6C1 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548B4D724196FE3006AD6C1 /* SwipeTableViewController.swift */; };
+		655CB8AE241ADC1E0074E61A /* Pods_Tiply_v0_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */; };
+		655CB8AF241ADC1E0074E61A /* Pods_Tiply_v0_1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		65B8BC13241334B50098B2F2 /* TipCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */; };
 		65FFF9CD2419CDB700ED3EAE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65FFF9C12419CD9B00ED3EAE /* Roboto-Regular.ttf */; };
-		92A7AFA009391FA0B60FFA8D /* Pods_Tiply_v0_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		655CB8B0241ADC1E0074E61A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				655CB8AF241ADC1E0074E61A /* Pods_Tiply_v0_1.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		412311892401DD4F00375AAD /* Tiply_v0.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tiply_v0.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +52,7 @@
 		4158461D24107BAF00B48876 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		4158461F24107C9500B48876 /* ItemizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizationViewController.swift; sourceTree = "<group>"; };
 		6548B4D724196FE3006AD6C1 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		655CB8AA241ADB030074E61A /* SwipeCellKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwipeCellKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		658D9CD184AB113E41D5FD74 /* Pods-Tiply_v0.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiply_v0.1.debug.xcconfig"; path = "Target Support Files/Pods-Tiply_v0.1/Pods-Tiply_v0.1.debug.xcconfig"; sourceTree = "<group>"; };
 		65B8BC12241334B50098B2F2 /* TipCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorViewController.swift; sourceTree = "<group>"; };
 		65FFF9C12419CD9B00ED3EAE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -49,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92A7AFA009391FA0B60FFA8D /* Pods_Tiply_v0_1.framework in Frameworks */,
+				655CB8AE241ADC1E0074E61A /* Pods_Tiply_v0_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +75,7 @@
 		323D2D9599A914184F0F0007 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				655CB8AA241ADB030074E61A /* SwipeCellKit.framework */,
 				F066D5F6A3F68ABFAAA4D41B /* Pods_Tiply_v0_1.framework */,
 			);
 			name = Frameworks;
@@ -156,6 +173,7 @@
 				412311862401DD4F00375AAD /* Frameworks */,
 				412311872401DD4F00375AAD /* Resources */,
 				33C0035D764FFBB2116F91F5 /* [CP] Embed Pods Frameworks */,
+				655CB8B0241ADC1E0074E61A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,7 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HRSBLF542J;
+				DEVELOPMENT_TEAM = MQ79U7S5FQ;
 				INFOPLIST_FILE = Tiply_v0.1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -433,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HRSBLF542J;
+				DEVELOPMENT_TEAM = MQ79U7S5FQ;
 				INFOPLIST_FILE = Tiply_v0.1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
