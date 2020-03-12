@@ -101,12 +101,11 @@ class ReviewViewController: SwipeTableViewController{
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create New Restaraunt"
             textField = alertTextField
-            ratingField = alertTextField
-            
         }
         
         alert.addTextField { (alertTextField2) in
             alertTextField2.placeholder = "Create New Rating"
+            alertTextField2.keyboardType = .decimalPad
             ratingField = alertTextField2
             
         }
