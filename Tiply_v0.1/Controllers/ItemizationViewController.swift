@@ -311,8 +311,9 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         {
             personTextField.text = personList[0]
         }
-        
+        print(personList[row])
         return personList[row]
+        
     }
     
     public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
@@ -320,7 +321,7 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         let titleData = personList[row]
         
         let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Roboto", size: 17.0)!,NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.8935413957, blue: 0.8169435859, alpha: 1)])
-        
+
         return myTitle
         
     }
