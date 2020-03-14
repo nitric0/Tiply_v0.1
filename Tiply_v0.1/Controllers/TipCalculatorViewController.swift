@@ -21,6 +21,9 @@ class TipCalculatorViewController: UIViewController {
     @IBOutlet weak var totalperPersonLabel: UILabel!
     @IBOutlet weak var standardTipTextField: UITextField!
     @IBOutlet var ratingSliders: [UISlider]!
+    @IBOutlet weak var calcTipButton: UIButton!
+    @IBOutlet weak var reviewItButton: UIButton!
+    @IBOutlet weak var updateButton: UIButton!
     
     var tipModifier : Float = 100.0
     var billTotal : Double = 0.0
@@ -36,6 +39,21 @@ class TipCalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Button customization
+        calcTipButton.backgroundColor = .black
+        calcTipButton.layer.cornerRadius = 5
+        calcTipButton.layer.borderWidth = 1
+        calcTipButton.layer.borderColor = UIColor.systemTeal.cgColor
+        
+        reviewItButton.backgroundColor = .black
+        reviewItButton.layer.cornerRadius = 5
+        reviewItButton.layer.borderWidth = 1
+        reviewItButton.layer.borderColor = UIColor.systemTeal.cgColor
+        
+        updateButton.backgroundColor = .black
+        updateButton.layer.cornerRadius = 5
+        updateButton.layer.borderWidth = 1
+        updateButton.layer.borderColor = UIColor.systemTeal.cgColor
         
         //Swiping gesture for tab bar controller
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))

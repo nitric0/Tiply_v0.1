@@ -13,12 +13,16 @@ class WhoPaysViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var randomPersonText: UITextView!
-
+    @IBOutlet weak var addPersonButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    
     
     var personList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonCustomization(button: addPersonButton)
+        buttonCustomization(button: doneButton)
         //Swiping gesture for tab bar controller
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
@@ -36,6 +40,13 @@ class WhoPaysViewController: UIViewController {
         // Do any additional setup after loading the view.
         
        
+    }
+    
+    func buttonCustomization (button: UIButton){
+              button.backgroundColor = .black
+              button.layer.cornerRadius = 5
+              button.layer.borderWidth = 1
+              button.layer.borderColor = UIColor.systemTeal.cgColor
     }
     
     //MARK: - Swipe Gesture Test

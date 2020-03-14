@@ -20,6 +20,8 @@ class ItemizationViewController: UIViewController {
     @IBOutlet weak var addPersonTextField: UITextField!
     @IBOutlet weak var personTextField: UITextField!
     @IBOutlet weak var addItemButton: UIButton!
+    @IBOutlet weak var addPersonButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
     
     
     
@@ -45,6 +47,9 @@ class ItemizationViewController: UIViewController {
         super.viewDidLoad()
         createPickerView()
         dismissPickerView()
+        buttonCustomization(button: addItemButton)
+        buttonCustomization(button: addPersonButton)
+        buttonCustomization(button: clearButton)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -67,6 +72,13 @@ class ItemizationViewController: UIViewController {
         for tf in textFields {
             tf.attributedPlaceholder = NSAttributedString(string: tf.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         }
+    }
+    
+    func buttonCustomization (button: UIButton){
+              button.backgroundColor = .black
+              button.layer.cornerRadius = 5
+              button.layer.borderWidth = 1
+              button.layer.borderColor = UIColor.systemTeal.cgColor
     }
     
     //MARK: - Swipe Gesture Test
@@ -311,7 +323,7 @@ extension ItemizationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         {
             personTextField.text = personList[0]
         }
-        print(personList[row])
+        
         return personList[row]
         
     }
